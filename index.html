@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>بيشوي نجيب | Bishoy Nageuib - Portfolio</title>
+  <meta name="description" content="الملف المهني والسيرة الذاتية لبيشوي نجيب في مجالات الإدارة والمحاسبة والتمويل وخدمة العملاء.">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0f2b48;
+      --primary-dark: #091a2c;
+      --primary-light: #1a436e;
+      --accent: #c59b27;
+      --accent-hover: #b08a1e;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --hero-bg: linear-gradient(135deg, #091a2c 0%, #0f2b48 100%);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-md: 0 10px 25px -5px rgba(15, 43, 72, 0.08);
+      --shadow-lg: 0 20px 30px -10px rgba(15, 43, 72, 0.15);
+      --badge-bg: #f1f5f9;
+      --badge-text: #0f2b48;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --primary: #90caf9;
+      --primary-dark: #0d1117;
+      --primary-light: #1e293b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --bg-body: #0d1117;
+      --bg-card: #161b22;
+      --border-color: #30363d;
+      --nav-bg: rgba(22, 27, 34, 0.95);
+      --hero-bg: linear-gradient(135deg, #050b14 0%, #161b22 100%);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.4);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 20px 30px -10px rgba(0, 0, 0, 0.7);
+      --badge-bg: #21262d;
+      --badge-text: #e6edf3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-body); }
+    ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+    }
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand span { color: var(--accent); }
+    
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .control-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .control-btn:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* Containers */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 1.5rem 1.5rem;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.8rem;
+      position: relative;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      font-weight: 800;
+      display: inline-block;
+      position: relative;
+    }
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 45px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--hero-bg);
+      color: white;
+      padding: 7.5rem 1.5rem 4.5rem;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .hero-image-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-img {
+      width: 290px;
+      height: 370px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid var(--accent);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .hero-text h3 {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .hero-text p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      margin-bottom: 1.6rem;
+      line-height: 1.85;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #091a2c;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(197, 155, 39, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+    }
+    .hero-meta-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.1rem;
+      border-radius: 10px;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+    }
+    .hero-meta-item i { color: var(--accent); width: 16px; }
+
+    /* Open to Work Card Section */
+    .open-to-work-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2.2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      border-inline-start: 5px solid var(--accent);
+    }
+    .open-to-work-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 1.2rem;
+    }
+    .open-to-work-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(197, 155, 39, 0.12);
+      color: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      border: 1px solid rgba(197, 155, 39, 0.3);
+    }
+    .open-to-work-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-main);
+      margin-bottom: 1.6rem;
+      white-space: pre-line;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.6rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 1.6rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(197, 155, 39, 0.4);
+    }
+    .card-header-icon {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(197, 155, 39, 0.1);
+      color: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 1px solid var(--border-color);
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      background: rgba(197, 155, 39, 0.15);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-inline-start: auto;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-inline-start: 1.8rem;
+      border-inline-start: 2px solid var(--border-color);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.2rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      inset-inline-start: -2.35rem;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border: 2px solid var(--bg-body);
+      border-radius: 50%;
+    }
+    .timeline-content {
+      background: var(--bg-card);
+      padding: 1.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .timeline-date {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-title {
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .timeline-sub {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+    .timeline-list {
+      padding-inline-start: 1.3rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+    .timeline-list li { margin-bottom: 0.35rem; }
+
+    /* Gallery */
+    .doc-card {
+      background: var(--bg-card);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .doc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .doc-preview {
+      height: 185px;
+      overflow: hidden;
+      position: relative;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .doc-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .doc-card:hover .doc-preview img { transform: scale(1.05); }
+    .doc-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 43, 72, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .doc-card:hover .doc-overlay { opacity: 1; }
+    .doc-overlay button, .doc-overlay a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: white;
+      color: #0f2b48;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .doc-overlay button:hover, .doc-overlay a:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .doc-body {
+      padding: 1.1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .doc-body h4 {
+      font-size: 0.98rem;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    .doc-body p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      inset: 0;
+      background-color: rgba(9, 26, 44, 0.94);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-content {
+      max-width: 92%;
+      max-height: 88vh;
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      inset-inline-end: 25px;
+      color: white;
+      font-size: 2.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .modal-close:hover { color: var(--accent); }
+
+    /* Contact */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-info {
+      background: linear-gradient(135deg, #0f2b48 0%, #091a2c 100%);
+      color: white;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .contact-info h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+    .contact-info p { color: #cbd5e1; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .contact-links { list-style: none; }
+    .contact-links li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+      font-size: 0.92rem;
+    }
+    .contact-links a { color: white; text-decoration: none; transition: var(--transition); }
+    .contact-links a:hover { color: var(--accent); }
+    .contact-links i { color: var(--accent); font-size: 1.1rem; }
+    
+    .contact-form { padding: 2.2rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background: var(--bg-body);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: #94a3b8;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 992px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-image-wrapper { margin: 0 auto; }
+      .hero-cta { justify-content: center; }
+      .hero-meta-list { grid-template-columns: 1fr; text-align: start; }
+      .contact-wrapper { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-center {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        border-bottom: 1px solid var(--border-color);
+      }
+      .nav-center.active { display: flex; }
+      .nav-links { flex-direction: column; width: 100%; text-align: center; }
+      .nav-toggle { display: block; }
+      .hero-text h1 { font-size: 2.1rem; }
+      .timeline { padding-inline-start: 1.5rem; }
+      .timeline-dot { inset-inline-start: -2.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#home" class="brand">
+        <i class="fa-solid fa-briefcase"></i>
+        <span data-i18n="brand_name">بيشوي نجيب</span> <span>.</span>
+      </a>
+
+      <div class="nav-center" id="navCenter">
+        <ul class="nav-links">
+          <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
+          <li><a href="#open-to-work" data-i18n="nav_open_work">فرص العمل</a></li>
+          <li><a href="#about" data-i18n="nav_about">الهدف الوظيفي</a></li>
+          <li><a href="#education" data-i18n="nav_edu">التعليم</a></li>
+          <li><a href="#experience" data-i18n="nav_exp">الخبرات</a></li>
+          <li><a href="#skills" data-i18n="nav_skills">المهارات</a></li>
+          <li><a href="#courses" data-i18n="nav_courses">الشهادات والدورات</a></li>
+          <li><a href="#documents" data-i18n="nav_docs">المستندات</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">التواصل</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-controls">
+        <button class="control-btn" id="themeBtn" title="تبديل المظهر">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="control-btn" id="langBtn" title="Language">
+          <i class="fa-solid fa-globe"></i> <span id="langLabel">English</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-image-wrapper">
+        <img src="profile.jpg.jpg" alt="بيشوي نجيب" class="hero-img">
+      </div>
+
+      <div class="hero-text">
+        <h1 data-i18n="hero_name">بيشوي نجيب</h1>
+        <h3 data-i18n="hero_title">الإدارة والمحاسبة والتمويل | باحث دكتوراه إدارة الأعمال (DBA)</h3>
+        <p data-i18n="hero_desc">
+          الملف المهني والسيرة الذاتية الخاصة بي في مجالات الإدارة والمحاسبة والتمويل وخدمة العملاء.
+        </p>
+        
+        <div class="hero-cta">
+          <a href="beshoy cv 18 jul 2026.pdf" download="beshoy cv 18 jul 2026.pdf" class="btn btn-primary">
+            <i class="fa-solid fa-file-pdf"></i> <span data-i18n="btn_download_cv">تحميل السيرة الذاتية (PDF)</span>
+          </a>
+          <a href="#open-to-work" class="btn btn-outline">
+            <i class="fa-solid fa-handshake"></i> <span data-i18n="btn_open_work">متاح لفرص العمل</span>
+          </a>
+        </div>
+
+        <div class="hero-meta-list">
+          <div class="hero-meta-item"><i class="fa-solid fa-location-dot"></i> <span data-i18n="meta_address">ميت غمر، الدقهلية | شبرا الخيمة، القليوبية، مصر</span></div>
+          <div class="hero-meta-item"><i class="fa-solid fa-phone"></i> <span dir="ltr">+20 127 379 1926</span></div>
+          <div class="hero-meta-item"><i class="fa-solid fa-envelope"></i> <span>Beshoy.Work@outlook.com</span></div>
+          <div class="hero-meta-item"><i class="fa-solid fa-calendar-day"></i> <span data-i18n="meta_dob">17 يونيو 2001</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Open to Work Section -->
+  <section class="container" id="open-to-work">
+    <div class="open-to-work-card">
+      <div class="open-to-work-header">
+        <div class="open-to-work-icon">
+          <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <div>
+          <h2 style="color: var(--primary); font-size: 1.45rem; font-weight: 800;" data-i18n="otw_title">متاح لفرص العمل</h2>
+          <span class="card-tag" style="display: inline-block; margin-top: 4px;" data-i18n="otw_tag">جاهز للانضمام الفوري</span>
+        </div>
+      </div>
+      <p class="open-to-work-text" data-i18n="otw_text">
+        أبحث عن فرص في: الإدارة، المحاسبة، التمويل، خدمة العملاء، والقطاع المصرفي.
+        أنا بيشوي، أبحث حاليًا عن فرصة عمل مناسبة، ولدي خبرة في المجال الإداري وخدمة العملاء، بالإضافة إلى حصولي على ماجستير في إدارة الأعمال (MBA)، وأكمل حاليًا دراسة الدكتوراه في إدارة الأعمال.
+        إذا كانت لديكم فرصة مناسبة، أو تعرفون جهة تبحث عن شخص بالمؤهلات والخبرات دي، أتمنى أن تتذكروني.
+        متشكر جدًا لوقتكم، وربنا يكرمكم.
+      </p>
+      <a href="#contact" class="btn btn-primary">
+        <i class="fa-solid fa-paper-plane"></i> <span data-i18n="otw_btn">تواصل معي بخصوص فرصة عمل</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Career Objective -->
+  <section class="container" id="about">
+    <div class="section-title">
+      <h2 data-i18n="about_title">الهدف الوظيفي</h2>
+    </div>
+    <div class="card" style="border-inline-start: 4px solid var(--accent);">
+      <p style="font-size: 1.05rem; line-height: 1.9;" data-i18n="about_text">
+        أسعى إلى تطوير مسيرتي المهنية في مجالات الإدارة والمحاسبة والتمويل وخدمة العملاء، والاستفادة من خبرتي العملية ومؤهلاتي الأكاديمية في إدارة الأعمال والتمويل والاستثمار.<br><br>
+        حاصل على ماجستير في إدارة الأعمال (MBA) في التمويل والاستثمار، وأدرس حاليًا دكتوراه إدارة الأعمال (DBA).<br><br>
+        أرغب في الحصول على فرصة مناسبة داخل شركة أو مؤسسة مالية أو مصرفية أو إدارية، أستطيع من خلالها الاستفادة من خبرتي ومهاراتي وتطوير خبرتي المهنية بشكل مستمر.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="container" id="education">
+    <div class="section-title">
+      <h2 data-i18n="edu_title">التعليم</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-header-icon">
+          <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="card-tag" data-i18n="edu_1_tag">قيد الدراسة</span>
+        </div>
+        <h3 style="color: var(--primary); font-size: 1.15rem;" data-i18n="edu_1_title">دكتوراه إدارة الأعمال (DBA)</h3>
+        <h4 style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.3rem;" data-i18n="edu_1_inst">جامعة طنطا</h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="edu_1_major">التخصص: إدارة الأعمال</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header-icon">
+          <div class="card-icon"><i class="fa-solid fa-award"></i></div>
+          <span class="card-tag" data-i18n="edu_2_tag">التقدير: ممتاز</span>
+        </div>
+        <h3 style="color: var(--primary); font-size: 1.15rem;" data-i18n="edu_2_title">ماجستير إدارة الأعمال (MBA)</h3>
+        <h4 style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.3rem;" data-i18n="edu_2_inst">جامعة طنطا</h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="edu_2_desc">التخصص: التمويل والاستثمار (فبراير 2026)</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header-icon">
+          <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <span class="card-tag" data-i18n="edu_3_tag">الترتيب: الرابع (90%)</span>
+        </div>
+        <h3 style="color: var(--primary); font-size: 1.15rem;" data-i18n="edu_3_title">بكالوريوس نظم معلومات إدارية (BIS)</h3>
+        <h4 style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.3rem;" data-i18n="edu_3_inst">المعهد العالي للحاسبات ونظم المعلومات - شبرا الخيمة</h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="edu_3_desc">سنة التخرج: 2023 (مشروع التخرج: ممتاز)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="container" id="experience">
+    <div class="section-title">
+      <h2 data-i18n="exp_title">الخبرات العملية</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">December 2025 - Present</div>
+          <h3 class="timeline-title" data-i18n="exp_1_title">Customer Service Representative - Housing & Development Bank (HDB), Egypt</h3>
+          <ul class="timeline-list">
+            <li data-i18n="exp_1_li1">Supervised the daily performance of the team, reviewed team members' work, and provided guidance to improve service quality and productivity.</li>
+            <li data-i18n="exp_1_li2">Handled inbound customer calls and provided professional support for banking products and services.</li>
+            <li data-i18n="exp_1_li3">Assisted customers with account inquiries, debit and credit card services, digital banking, and transaction-related requests.</li>
+            <li data-i18n="exp_1_li4">Resolved customer complaints while maintaining high customer satisfaction and service quality standards.</li>
+            <li data-i18n="exp_1_li5">Verified customer information and followed KYC, compliance, and bank policies during all customer interactions.</li>
+            <li data-i18n="exp_1_li6">Documented customer interactions accurately using CRM and banking systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">June 2025 - May 2026</div>
+          <h3 class="timeline-title" data-i18n="exp_2_title">Accountant - Agricultural Production Company, Wadi El Natrun, Egypt</h3>
+          <ul class="timeline-list">
+            <li data-i18n="exp_2_li1">Monitored daily inventory for all incoming and outgoing materials, ensuring 100% accuracy.</li>
+            <li data-i18n="exp_2_li2">Recorded and reviewed all financial transactions, including expenses and revenues, reducing discrepancies by 15%.</li>
+            <li data-i18n="exp_2_li3">Prepared invoices, purchase orders, and tracked supplier payments to ensure timely settlements.</li>
+            <li data-i18n="exp_2_li4">Managed cash handling, payroll, and employee reimbursements for 50+ staff members accurately.</li>
+            <li data-i18n="exp_2_li5">Implemented reporting dashboards using Excel and Access for real-time financial monitoring.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="container" id="skills">
+    <div class="section-title">
+      <h2 data-i18n="sk_title">المهارات</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="skill-category">
+          <h4><i class="fa-solid fa-calculator" style="color: var(--accent);"></i> <span data-i18n="sk_h1">المهارات المحاسبية والإدارية</span></h4>
+          <div class="badge-cloud">
+            <span class="badge" data-i18n="sk_s1">المحاسبة</span>
+            <span class="badge" data-i18n="sk_s2">إعداد التقارير</span>
+            <span class="badge" data-i18n="sk_s3">إدخال وتنظيم البيانات</span>
+            <span class="badge">Microsoft Excel</span>
+            <span class="badge">Microsoft Access</span>
+            <span class="badge">Power BI</span>
+            <span class="badge">Microsoft Office</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="skill-category">
+          <h4><i class="fa-solid fa-headset" style="color: var(--accent);"></i> <span data-i18n="sk_h2">خدمة العملاء والمهارات الشخصية</span></h4>
+          <div class="badge-cloud">
+            <span class="badge" data-i18n="sk_s4">خدمة العملاء</span>
+            <span class="badge" data-i18n="sk_s5">العمل الإداري</span>
+            <span class="badge" data-i18n="sk_s6">التعامل مع العملاء</span>
+            <span class="badge" data-i18n="sk_s7">إدارة الوقت</span>
+            <span class="badge" data-i18n="sk_s8">التواصل وحل المشكلات</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="container" id="courses">
+    <div class="section-title">
+      <h2 data-i18n="crs_title">الشهادات والدورات</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color: var(--primary); font-size: 1.05rem;" data-i18n="crs_1_t">دورة اللغة الإنجليزية (التحضير لاختبار TOEFL)</h3>
+        <p style="color: var(--accent); font-size: 0.88rem; font-weight: 700;" data-i18n="crs_1_d">معهد اللغات للقوات المسلحة (AFIL) – 2026 حتى الآن</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--primary); font-size: 1.05rem;" data-i18n="crs_2_t">شهادة أساسيات التحول الرقمي (FDTC)</h3>
+        <p style="color: var(--accent); font-size: 0.88rem; font-weight: 700;" data-i18n="crs_2_d">جامعة طنطا (أغسطس 2025 إلى يوليو 2030)</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--primary); font-size: 1.05rem;" data-i18n="crs_3_t">دورة العمليات المصرفية الإلكترونية</h3>
+        <p style="color: var(--accent); font-size: 0.88rem; font-weight: 700;" data-i18n="crs_3_d">بنك مصر – 2025</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--primary); font-size: 1.05rem;" data-i18n="crs_4_t">أساسيات تحليل البيانات (Power BI, MySQL, Access)</h3>
+        <p style="color: var(--accent); font-size: 0.88rem; font-weight: 700;" data-i18n="crs_4_d">أونلاين – 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents Gallery using your exact uploaded filenames -->
+  <section class="container" id="documents">
+    <div class="section-title">
+      <h2 data-i18n="doc_title">معرض الشهادات والمستندات</h2>
+    </div>
+    <div class="grid-3">
+      <!-- 1. MBA -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (6)_7.jpeg" alt="MBA Certificate">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (6)_7.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (6)_7.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_1_t">ماجستير إدارة الأعمال (MBA)</h4>
+          <p data-i18n="doc_1_d">جامعة طنطا - تمويل واستثمار</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (6)_7.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. BIS -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (10)_7.jpeg" alt="BIS Degree">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (10)_7.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (10)_7.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_2_t">بكالوريوس نظم معلومات (BIS)</h4>
+          <p data-i18n="doc_2_d">المعهد العالي - بتقدير ممتاز</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (10)_7.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. FDTC -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (9)_7.jpeg" alt="Digital Transformation Certificate">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (9)_7.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (9)_7.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_3_t">شهادة التحول الرقمي (FDTC)</h4>
+          <p data-i18n="doc_3_d">المجلس الأعلى للجامعات وجامعة طنطا</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (9)_7.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4. Banque Misr -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (2)_7.jpeg" alt="Banque Misr Training">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (2)_7.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (2)_7.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_4_t">شهادة تدريب بنك مصر</h4>
+          <p data-i18n="doc_4_d">التدريب الصيفي المصرفي المعتمد</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (2)_7.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 5. Syndicate -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (7)_5.jpeg" alt="Syndicate Membership">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (7)_5.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (7)_5.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_5_t">عضوية نقابة التجاريين</h4>
+          <p data-i18n="doc_5_d">شعبة تنظيم وإدارة</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (7)_5.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 6. DBA Card -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (8)_6.jpeg" alt="DBA Card">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (8)_6.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (8)_6.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_6_t">بطاقة باحث دكتوراه (DBA)</h4>
+          <p data-i18n="doc_6_d">جامعة طنطا - كلية التجارة</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (8)_6.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 7. SQL Course Certificate -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (1).jpeg" alt="SQL Certification Course">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (1).jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (1).jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_7_t">شهادة دورة SQL</h4>
+          <p data-i18n="doc_7_d">Programming Hub - أساسيات قواعد البيانات</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (1).jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 8. Military Service Certificate -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM (3).jpeg" alt="Military Service Certificate">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (3).jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM (3).jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_8_t">شهادة تأدية الخدمة العسكرية</h4>
+          <p data-i18n="doc_8_d">وزارة الدفاع - قطاع الشرطة</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM (3).jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 9. C++ Course Certificate -->
+      <div class="doc-card">
+        <div class="doc-preview">
+          <img src="WhatsApp Image 2026-08-27 at 3.58.47 PM.jpeg" alt="C++ Certification Course">
+          <div class="doc-overlay">
+            <button onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM.jpeg')"><i class="fa-solid fa-expand"></i></button>
+            <a href="WhatsApp Image 2026-08-27 at 3.58.47 PM.jpeg" download><i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+        <div class="doc-body">
+          <h4 data-i18n="doc_9_t">شهادة دورة C++</h4>
+          <p data-i18n="doc_9_d">Programming Hub - أساسيات البرمجة</p>
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border-color); width: 100%; justify-content: center;" onclick="openModal('WhatsApp Image 2026-08-27 at 3.58.47 PM.jpeg')">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_full">عرض بالحجم الكامل</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="container" id="contact">
+    <div class="section-title">
+      <h2 data-i18n="cnt_title">التواصل</h2>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div>
+          <h3 data-i18n="cnt_head">بيانات الاتصال</h3>
+          <p data-i18n="cnt_p">يسعدني التواصل الدائم لبحث فرص التعاون والمقابلات الوظيفية.</p>
+          <ul class="contact-links">
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:Beshoy.Work@outlook.com">Beshoy.Work@outlook.com</a></li>
+            <li><i class="fa-solid fa-envelope-open-text"></i> <a href="mailto:PG_190005@commerce.tanta.edu.eg">PG_190005@commerce.tanta.edu.eg</a></li>
+            <li><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/beshoy-naguib/" target="_blank">LinkedIn Profile</a></li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:+201273791926" dir="ltr">+20 127 379 1926</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="cnt_addr">ميت غمر، الدقهلية | شبرا الخيمة، القليوبية، مصر</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label data-i18n="f_name">الاسم</label>
+            <input type="text" id="formName" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="f_mail">البريد الإلكتروني</label>
+            <input type="email" id="formEmail" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="f_sub">الموضوع</label>
+            <input type="text" id="formSubject" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="f_msg">الرسالة</label>
+            <textarea id="formMessage" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="f_btn">إرسال</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="imageModal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="معاينة">
+  </div>
+
+  <footer>
+    <p>&copy; 2026 | <strong>Bishoy Nageuib</strong></p>
+  </footer>
+
+  <!-- JavaScript: Full Bilingual Translation, Mailto Form & UI Controls -->
+  <script>
+    const translations = {
+      ar: {
+        brand_name: "بيشوي نجيب",
+        nav_home: "الرئيسية",
+        nav_open_work: "فرص العمل",
+        nav_about: "الهدف الوظيفي",
+        nav_edu: "التعليم",
+        nav_exp: "الخبرات",
+        nav_skills: "المهارات",
+        nav_courses: "الدورات والشهادات",
+        nav_docs: "المستندات",
+        nav_contact: "التواصل",
+        hero_name: "بيشوي نجيب",
+        hero_title: "الإدارة والمحاسبة والتمويل | باحث دكتوراه إدارة الأعمال (DBA)",
+        hero_desc: "الملف المهني والسيرة الذاتية الخاصة بي في مجالات الإدارة والمحاسبة والتمويل وخدمة العملاء.",
+        btn_download_cv: "تحميل السيرة الذاتية (PDF)",
+        btn_open_work: "متاح لفرص العمل",
+        meta_address: "ميت غمر، الدقهلية | شبرا الخيمة، القليوبية، مصر",
+        meta_dob: "17 يونيو 2001",
+        otw_title: "متاح لفرص العمل",
+        otw_tag: "جاهز للانضمام الفوري",
+        otw_text: "أبحث عن فرص في: الإدارة، المحاسبة، التمويل، خدمة العملاء، والقطاع المصرفي.\nأنا بيشوي، أبحث حاليًا عن فرصة عمل مناسبة، ولدي خبرة في المجال الإداري وخدمة العملاء، بالإضافة إلى حصولي على ماجستير في إدارة الأعمال (MBA)، وأكمل حاليًا دراسة الدكتوراه في إدارة الأعمال.\nإذا كانت لديكم فرصة مناسبة، أو تعرفون جهة تبحث عن شخص بالمؤهلات والخبرات دي، أتمنى أن تتذكروني.\nمتشكر جدًا لوقتكم، وربنا يكرمكم.",
+        otw_btn: "تواصل معي بخصوص فرصة عمل",
+        about_title: "الهدف الوظيفي",
+        about_text: "أسعى إلى تطوير مسيرتي المهنية في مجالات الإدارة والمحاسبة والتمويل وخدمة العملاء، والاستفادة من خبرتي العملية ومؤهلاتي الأكاديمية في إدارة الأعمال والتمويل والاستثمار.<br><br>حاصل على ماجستير في إدارة الأعمال (MBA) في التمويل والاستثمار، وأدرس حاليًا دكتوراه إدارة الأعمال (DBA).<br><br>أرغب في الحصول على فرصة مناسبة داخل شركة أو مؤسسة مالية أو مصرفية أو إدارية، أستطيع من خلالها الاستفادة من خبرتي ومهاراتي وتطوير خبرتي المهنية بشكل مستمر.",
+        edu_title: "التعليم",
+        edu_1_tag: "قيد الدراسة",
+        edu_1_title: "دكتوراه إدارة الأعمال (DBA)",
+        edu_1_inst: "جامعة طنطا",
+        edu_1_major: "التخصص: إدارة الأعمال",
+        edu_2_tag: "التقدير: ممتاز",
+        edu_2_title: "ماجستير إدارة الأعمال (MBA)",
+        edu_2_inst: "جامعة طنطا",
+        edu_2_desc: "التخصص: التمويل والاستثمار (فبراير 2026)",
+        edu_3_tag: "الترتيب: الرابع (90%)",
+        edu_3_title: "بكالوريوس نظم معلومات إدارية (BIS)",
+        edu_3_inst: "المعهد العالي للحاسبات ونظم المعلومات - شبرا الخيمة",
+        edu_3_desc: "سنة التخرج: 2023 (مشروع التخرج: ممتاز)",
+        exp_title: "الخبرات العملية",
+        exp_1_title: "ممثل خدمة عملاء - بنك التعمير والإسكان (HDB)، مصر",
+        exp_1_li1: "الإشراف على الأداء اليومي للفريق، ومراجعة أعمال الأعضاء، وتوجيههم لتحسين جودة الخدمة والإنتاجية.",
+        exp_1_li2: "التعامل مع مكالمات العملاء الواردة وتقديم دعم احترافي للمنتجات والخدمات المصرفية.",
+        exp_1_li3: "مساعدة العملاء في الاستفسارات عن الحسابات، خدمات بطاقات الائتمان والخصم، الخدمات المصرفية الرقمية، والطلبات المتعلقة بالمعاملات.",
+        exp_1_li4: "حل شكاوى العملاء مع الحفاظ على مستويات عالية من رضا العملاء ومعايير جودة الخدمة.",
+        exp_1_li5: "التحقق من بيانات العملاء والالتزام بسياسات اعرف عميلك (KYC)، والامتثال، وسياسات البنك خلال جميع تفاعلات العملاء.",
+        exp_1_li6: "توثيق تفاعلات العملاء بدقة باستخدام أنظمة إدارة علاقات العملاء (CRM) والأنظمة المصرفية.",
+        exp_2_title: "محاسب - شركة الإنتاج الزراعي، وادي النطرون، مصر",
+        exp_2_li1: "مراقبة المخزون اليومي لجميع المواد الواردة والصادرة، مع ضمان دقة بنسبة 100%.",
+        exp_2_li2: "تسجيل ومراجعة كافة المعاملات المالية، بما في ذلك المصروفات والإيرادات، مما أدى إلى تقليل الفروق بنسبة 15%.",
+        exp_2_li3: "إعداد الفواتير، أوامر الشراء، ومتابعة مدفوعات الموردين لضمان التسويات في المواعيد المحددة.",
+        exp_2_li4: "إدارة النقدية، الرواتب، ومستحقات وبدلات الموظفين لأكثر من 50 موظفًا بدقة.",
+        exp_2_li5: "تنفيذ لوحات معلومات التقارير باستخدام إكسيل (Excel) وأكسس (Access) للمراقبة المالية الفورية.",
+        sk_title: "المهارات",
+        sk_h1: "المهارات المحاسبية والإدارية",
+        sk_s1: "المحاسبة",
+        sk_s2: "إعداد التقارير",
+        sk_s3: "إدخال وتنظيم البيانات",
+        sk_h2: "خدمة العملاء والمهارات الشخصية",
+        sk_s4: "خدمة العملاء",
+        sk_s5: "العمل الإداري",
+        sk_s6: "التعامل مع العملاء",
+        sk_s7: "إدارة الوقت",
+        sk_s8: "التواصل وحل المشكلات",
+        crs_title: "الشهادات والدورات",
+        crs_1_t: "دورة اللغة الإنجليزية (التحضير لاختبار TOEFL)",
+        crs_1_d: "معهد اللغات للقوات المسلحة (AFIL) – 2026 حتى الآن",
+        crs_2_t: "شهادة أساسيات التحول الرقمي (FDTC)",
+        crs_2_d: "جامعة طنطا (أغسطس 2025 إلى يوليو 2030)",
+        crs_3_t: "دورة العمليات المصرفية الإلكترونية",
+        crs_3_d: "بنك مصر – 2025",
+        crs_4_t: "أساسيات تحليل البيانات (Power BI, MySQL, Access)",
+        crs_4_d: "أونلاين – 2025",
+        doc_title: "معرض الشهادات والمستندات",
+        doc_1_t: "ماجستير إدارة الأعمال (MBA)",
+        doc_1_d: "جامعة طنطا - تمويل واستثمار",
+        doc_2_t: "بكالوريوس نظم معلومات (BIS)",
+        doc_2_d: "المعهد العالي - بتقدير ممتاز",
+        doc_3_t: "شهادة التحول الرقمي (FDTC)",
+        doc_3_d: "المجلس الأعلى للجامعات وجامعة طنطا",
+        doc_4_t: "شهادة تدريب بنك مصر",
+        doc_4_d: "التدريب الصيفي المصرفي المعتمد",
+        doc_5_t: "عضوية نقابة التجاريين",
+        doc_5_d: "شعبة تنظيم وإدارة",
+        doc_6_t: "بطاقة باحث دكتوراه (DBA)",
+        doc_6_d: "جامعة طنطا - كلية التجارة",
+        doc_7_t: "شهادة دورة SQL",
+        doc_7_d: "Programming Hub - أساسيات قواعد البيانات",
+        doc_8_t: "شهادة تأدية الخدمة العسكرية",
+        doc_8_d: "وزارة الدفاع - قطاع الشرطة",
+        doc_9_t: "شهادة دورة C++",
+        doc_9_d: "Programming Hub - أساسيات البرمجة",
+        btn_full: "عرض بالحجم الكامل",
+        cnt_title: "التواصل",
+        cnt_head: "بيانات الاتصال",
+        cnt_p: "يسعدني التواصل الدائم لبحث فرص التعاون والمقابلات الوظيفية.",
+        cnt_addr: "ميت غمر، الدقهلية | شبرا الخيمة، القليوبية، مصر",
+        f_name: "الاسم",
+        f_mail: "البريد الإلكتروني",
+        f_sub: "الموضوع",
+        f_msg: "الرسالة",
+        f_btn: "إرسال"
+      },
+      en: {
+        brand_name: "Bishoy Nageuib",
+        nav_home: "Home",
+        nav_open_work: "Open to Work",
+        nav_about: "Career Objective",
+        nav_edu: "Education",
+        nav_exp: "Experience",
+        nav_skills: "Skills",
+        nav_courses: "Courses & Certificates",
+        nav_docs: "Documents",
+        nav_contact: "Contact",
+        hero_name: "Bishoy Nageuib",
+        hero_title: "Management, Accounting & Finance | DBA Candidate",
+        hero_desc: "Professional portfolio and CV focusing on Management, Accounting, Finance, and Customer Service.",
+        btn_download_cv: "Download Official CV (PDF)",
+        btn_open_work: "Open to Opportunities",
+        meta_address: "Mit Ghamr, Dakahlia | Shubra El Kheima, Qalyubia, Egypt",
+        meta_dob: "17 June 2001",
+        otw_title: "Open to Work & Opportunities",
+        otw_tag: "Ready for Opportunities",
+        otw_text: "Seeking opportunities in: Management, Accounting, Finance, Customer Service, and the Banking Sector.\nI am Bishoy, actively seeking a suitable career opportunity with experience in administration and customer service, holding an MBA and currently pursuing a DBA.\nIf you have a suitable opening or know of an organization seeking someone with these qualifications, I would greatly appreciate connecting.\nThank you for your time and consideration.",
+        otw_btn: "Contact Regarding an Opportunity",
+        about_title: "Career Objective",
+        about_text: "Seeking to advance my career in management, accounting, finance, and customer service, leveraging my practical experience and academic qualifications in business administration, finance, and investment.<br><br>Holding an MBA in Finance and Investment, and currently pursuing a DBA in Business Administration.<br><br>Looking for a suitable opportunity within a company, financial, banking, or administrative institution where I can apply my skills and continuously develop my professional expertise.",
+        edu_title: "Education",
+        edu_1_tag: "Currently Pursuing",
+        edu_1_title: "Doctor of Business Administration (DBA)",
+        edu_1_inst: "Tanta University",
+        edu_1_major: "Major: Business Administration",
+        edu_2_tag: "Grade: Excellent",
+        edu_2_title: "Master of Business Administration (MBA)",
+        edu_2_inst: "Tanta University",
+        edu_2_desc: "Major: Finance and Investment (Feb 2026)",
+        edu_3_tag: "Class Rank: 4th (90%)",
+        edu_3_title: "Bachelor of Management Information Systems (BIS)",
+        edu_3_inst: "Higher Institute for Computers and MIS, Shubra El-Kheima",
+        edu_3_desc: "Graduation Year: 2023 (Project: Excellent)",
+        exp_title: "Work Experience",
+        exp_1_title: "Customer Service Representative - Housing & Development Bank (HDB), Egypt",
+        exp_1_li1: "Supervised daily team performance, reviewed work, and provided guidance to improve service quality and productivity.",
+        exp_1_li2: "Handled inbound customer calls and provided professional support for banking products and services.",
+        exp_1_li3: "Assisted customers with account inquiries, debit and credit card services, digital banking, and transaction-related requests.",
+        exp_1_li4: "Resolved customer complaints while maintaining high customer satisfaction and service quality standards.",
+        exp_1_li5: "Verified customer information and followed KYC, compliance, and bank policies during all customer interactions.",
+        exp_1_li6: "Documented customer interactions accurately using CRM and banking systems.",
+        exp_2_title: "Accountant - Agricultural Production Company, Wadi El Natrun, Egypt",
+        exp_2_li1: "Monitored daily inventory for all incoming and outgoing materials, ensuring 100% accuracy.",
+        exp_2_li2: "Recorded and reviewed all financial transactions, including expenses and revenues, reducing discrepancies by 15%.",
+        exp_2_li3: "Prepared invoices, purchase orders, and tracked supplier payments to ensure timely settlements.",
+        exp_2_li4: "Managed cash handling, payroll, and employee reimbursements for 50+ staff members accurately.",
+        exp_2_li5: "Implemented reporting dashboards using Excel and Access for real-time financial monitoring.",
+        sk_title: "المهارات",
+        sk_h1: "Accounting & Administrative Skills",
+        sk_s1: "Accounting",
+        sk_s2: "Reporting",
+        sk_s3: "Data Entry & Management",
+        sk_h2: "Customer Service & Soft Skills",
+        sk_s4: "Customer Service",
+        sk_s5: "Administrative Work",
+        sk_s6: "Client Relations",
+        sk_s7: "Time Management",
+        sk_s8: "Communication & Problem Solving",
+        crs_title: "Certificates & Courses",
+        crs_1_t: "English Language Course (TOEFL Preparation)",
+        crs_1_d: "Armed Forces Institute of Languages (AFIL) – 2026 - Present",
+        crs_2_t: "Fundamentals of Digital Transformation Certificate (FDTC)",
+        crs_2_d: "Tanta University (Aug 2025 to Jul 2030)",
+        crs_3_t: "Online Banking Operations Course",
+        crs_3_d: "Banque Misr – 2025",
+        crs_4_t: "Data Analysis Basics (Power BI, MySQL, Access)",
+        crs_4_d: "Online – 2025",
+        doc_title: "Certificates & Documents Gallery",
+        doc_1_t: "Master of Business Administration (MBA)",
+        doc_1_d: "Tanta University - Finance & Investment",
+        doc_2_t: "Bachelor Degree (BIS)",
+        doc_2_d: "Higher Institute - Excellent Grade",
+        doc_3_t: "Digital Transformation Certificate (FDTC)",
+        doc_3_d: "Supreme Council of Universities & Tanta University",
+        doc_4_t: "Banque Misr Training Certificate",
+        doc_4_d: "Certified Summer Banking Internship",
+        doc_5_t: "Commercial Professions Syndicate ID",
+        doc_5_d: "Organization & Administration Section",
+        doc_6_t: "DBA Researcher Card",
+        doc_6_d: "Tanta University - Faculty of Commerce",
+        doc_7_t: "SQL Course Certificate",
+        doc_7_d: "Programming Hub - SQL Fundamentals",
+        doc_8_t: "Military Service Certificate",
+        doc_8_d: "Ministry of Defense - Police Sector",
+        doc_9_t: "C++ Course Certificate",
+        doc_9_d: "Programming Hub - C++ Fundamentals",
+        btn_full: "View Full Size",
+        cnt_title: "Contact",
+        cnt_head: "Contact Information",
+        cnt_p: "Open to discussing career opportunities and professional engagements.",
+        cnt_addr: "Mit Ghamr, Dakahlia | Shubra El Kheima, Qalyubia, Egypt",
+        f_name: "Full Name",
+        f_mail: "Email Address",
+        f_sub: "Subject",
+        f_msg: "Message",
+        f_btn: "Send Message"
+      }
+    };
+
+    let currentLang = 'ar';
+    const langBtn = document.getElementById('langBtn');
+    const langLabel = document.getElementById('langLabel');
+
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+      langLabel.textContent = currentLang === 'ar' ? 'English' : 'عربي';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+    });
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.body.removeAttribute('data-theme');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    // Mobile Navigation
+    const navToggle = document.getElementById('navToggle');
+    const navCenter = document.getElementById('navCenter');
+    navToggle.addEventListener('click', () => navCenter.classList.toggle('active'));
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navCenter.classList.remove('active'));
+    });
+
+    // Contact Form Mailto Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('formName').value;
+      const email = document.getElementById('formEmail').value;
+      const subject = document.getElementById('formSubject').value;
+      const message = document.getElementById('formMessage').value;
+
+      const bodyText = `الاسم: ${name}\nالبريد الإلكتروني: ${email}\n\nالرسالة:\n${message}`;
+      const mailtoUrl = `mailto:Beshoy.Work@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = mailtoUrl;
+    });
+
+    // Image Modal Controls
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+
+    function openModal(src) {
+      modal.style.display = 'flex';
+      modalImg.src = src;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
