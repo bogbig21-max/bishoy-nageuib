@@ -1,0 +1,8 @@
+{
+  "name": "Bishoy Nageuib Portfolio",
+  "description": "Professional bilingual portfolio and CV for Bishoy Nageuib George - Financial Accountant, Banking & Customer Service Specialist, and Administrator.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
