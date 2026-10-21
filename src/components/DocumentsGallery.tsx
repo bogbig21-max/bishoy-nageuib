@@ -1,5 +1,11 @@
-import React from 'react';
-import { DocumentItem, documents, Language, translations } from '../data/portfolioData';
+import React, { useState } from 'react';
+import {
+  DocumentCategory,
+  DocumentItem,
+  documents,
+  Language,
+  translations,
+} from '../data/portfolioData';
 
 interface DocumentsGalleryProps {
   currentLang: Language;
@@ -10,15 +16,62 @@ export const DocumentsGallery: React.FC<DocumentsGalleryProps> = ({
   currentLang,
   onOpenModal,
 }) => {
+  const [activeFilter, setActiveFilter] = useState<DocumentCategory>('all');
   const t = translations[currentLang];
+
+  const filterTabs: { id: DocumentCategory; label: string; count: number }[] = [
+    { id: 'all', label: t.filter_all, count: documents.length },
+    {
+      id: 'academic',
+      label: t.filter_academic,
+      count: documents.filter((d) => d.category === 'academic').length,
+    },
+    {
+      id: 'experience',
+      label: t.filter_experience,
+      count: documents.filter((d) => d.category === 'experience').length,
+    },
+    {
+      id: 'courses',
+      label: t.filter_courses,
+      count: documents.filter((d) => d.category === 'courses').length,
+    },
+    {
+      id: 'official',
+      label: t.filter_official,
+      count: documents.filter((d) => d.category === 'official').length,
+    },
+  ];
+
+  const filteredDocs =
+    activeFilter === 'all'
+      ? documents
+      : documents.filter((doc) => doc.category === activeFilter);
 
   return (
     <section className="container" id="documents">
       <div className="section-title">
         <h2>{t.doc_title}</h2>
       </div>
+
+      {/* Filter Tabs */}
+      <div className="doc-filter-tabs">
+        {filterTabs.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            className={`filter-tab-btn ${activeFilter === tab.id ? 'active' : ''}`}
+            onClick={() => setActiveFilter(tab.id)}
+          >
+            <span>{tab.label}</span>
+            <span className="tab-count">{tab.count}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Document Grid */}
       <div className="grid-3">
-        {documents.map((doc: DocumentItem) => (
+        {filteredDocs.map((doc: DocumentItem) => (
           <div className="doc-card" key={doc.id}>
             <div className="doc-preview">
               <img

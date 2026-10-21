@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Language, translations } from '../data/portfolioData';
+import { downloadVCard } from '../utils/vcard';
 
 interface ContactProps {
   currentLang: Language;
+  onShowToast: (msg: string) => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ currentLang }) => {
+export const Contact: React.FC<ContactProps> = ({ currentLang, onShowToast }) => {
   const t = translations[currentLang];
 
   const [formName, setFormName] = useState('');
@@ -13,6 +15,24 @@ export const Contact: React.FC<ContactProps> = ({ currentLang }) => {
   const [formSubject, setFormSubject] = useState('');
   const [formMessage, setFormMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const copyToClipboard = (text: string, label: string) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        onShowToast(`${label}: ${t.copied_toast}`);
+      })
+      .catch(() => {
+        // Fallback
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        onShowToast(`${label}: ${t.copied_toast}`);
+      });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,54 +61,102 @@ export const Contact: React.FC<ContactProps> = ({ currentLang }) => {
             <p>{t.cnt_p}</p>
             <ul className="contact-links">
               <li>
-                <i className="fa-solid fa-envelope"></i>
-                <a href="mailto:beshoy.work@outlook.com">beshoy.work@outlook.com</a>
-              </li>
-              <li>
-                <i className="fa-brands fa-linkedin"></i>
-                <a
-                  href="https://www.linkedin.com/in/beshoy-naguib/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div className="contact-link-main">
+                  <i className="fa-solid fa-envelope"></i>
+                  <a href="mailto:beshoy.work@outlook.com">beshoy.work@outlook.com</a>
+                </div>
+                <button
+                  type="button"
+                  className="contact-copy-btn"
+                  onClick={() =>
+                    copyToClipboard('beshoy.work@outlook.com', t.copy_email_btn)
+                  }
+                  title={t.copy_email_btn}
+                  aria-label={t.copy_email_btn}
                 >
-                  {t.cnt_linkedin}
-                </a>
+                  <i className="fa-solid fa-copy"></i>
+                </button>
               </li>
               <li>
-                <i className="fa-solid fa-briefcase" style={{ color: 'var(--accent)' }}></i>
-                <a
-                  href="https://wuzzuf.net/me/--35b17d8b18"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div className="contact-link-main">
+                  <i className="fa-brands fa-linkedin"></i>
+                  <a
+                    href="https://www.linkedin.com/in/beshoy-naguib/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.cnt_linkedin}
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div className="contact-link-main">
+                  <i
+                    className="fa-solid fa-briefcase"
+                    style={{ color: 'var(--accent)' }}
+                  ></i>
+                  <a
+                    href="https://wuzzuf.net/me/--35b17d8b18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.cnt_wuzzuf}
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div className="contact-link-main">
+                  <i className="fa-solid fa-phone"></i>
+                  <a href="tel:+201273791926" dir="ltr">
+                    +20 127 379 1926
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  className="contact-copy-btn"
+                  onClick={() =>
+                    copyToClipboard('+201273791926', t.copy_phone_btn)
+                  }
+                  title={t.copy_phone_btn}
+                  aria-label={t.copy_phone_btn}
                 >
-                  {t.cnt_wuzzuf}
-                </a>
+                  <i className="fa-solid fa-copy"></i>
+                </button>
               </li>
               <li>
-                <i className="fa-solid fa-phone"></i>
-                <a href="tel:+201273791926" dir="ltr">
-                  +20 127 379 1926
-                </a>
+                <div className="contact-link-main">
+                  <i
+                    className="fa-brands fa-whatsapp"
+                    style={{ color: '#25d366', fontSize: '1.2rem' }}
+                  ></i>
+                  <a
+                    href="https://wa.me/201273791926"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    dir="ltr"
+                  >
+                    {t.cnt_whatsapp}
+                  </a>
+                </div>
               </li>
               <li>
-                <i
-                  className="fa-brands fa-whatsapp"
-                  style={{ color: '#25d366', fontSize: '1.2rem' }}
-                ></i>
-                <a
-                  href="https://wa.me/201273791926"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  dir="ltr"
-                >
-                  {t.cnt_whatsapp}
-                </a>
-              </li>
-              <li>
-                <i className="fa-solid fa-location-dot"></i>
-                <span>{t.cnt_addr}</span>
+                <div className="contact-link-main">
+                  <i className="fa-solid fa-location-dot"></i>
+                  <span>{t.cnt_addr}</span>
+                </div>
               </li>
             </ul>
+          </div>
+
+          <div className="contact-vcard-wrapper">
+            <button
+              type="button"
+              className="btn btn-outline vcard-download-btn"
+              onClick={downloadVCard}
+            >
+              <i className="fa-solid fa-address-card"></i>
+              <span>{t.btn_save_vcard}</span>
+            </button>
           </div>
         </div>
 

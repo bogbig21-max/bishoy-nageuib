@@ -1,11 +1,13 @@
 import React from 'react';
 import { Language, translations } from '../data/portfolioData';
+import { downloadVCard } from '../utils/vcard';
 
 interface HeroProps {
   currentLang: Language;
+  onOpenCvModal: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ currentLang }) => {
+export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenCvModal }) => {
   const t = translations[currentLang];
 
   return (
@@ -27,13 +29,33 @@ export const Hero: React.FC<HeroProps> = ({ currentLang }) => {
 
           <div className="hero-cta">
             <a
-              href="/beshoy cv 18 jul 2026.pdf"
-              download="beshoy cv 18 jul 2026.pdf"
+              href="/assets/aistudio/cv_Beshoy_Naguib_George_ecf2ba0b.pdf"
+              download="cv_Beshoy_Naguib_George.pdf"
               className="btn btn-primary"
             >
-              <i className="fa-solid fa-file-pdf"></i>
+              <i className="fa-solid fa-download"></i>
               <span>{t.btn_download_cv}</span>
             </a>
+
+            <button
+              type="button"
+              onClick={onOpenCvModal}
+              className="btn btn-outline"
+            >
+              <i className="fa-solid fa-eye"></i>
+              <span>{t.btn_preview_cv}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={downloadVCard}
+              className="btn btn-outline"
+              title={t.btn_save_vcard}
+            >
+              <i className="fa-solid fa-address-card"></i>
+              <span>{t.btn_save_vcard}</span>
+            </button>
+
             <a href="#open-to-work" className="btn btn-outline">
               <i className="fa-solid fa-handshake"></i>
               <span>{t.btn_open_work}</span>

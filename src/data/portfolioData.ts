@@ -1,10 +1,13 @@
 export type Language = 'en' | 'ar';
 
+export type DocumentCategory = 'all' | 'academic' | 'experience' | 'courses' | 'official';
+
 export interface DocumentItem {
   id: string;
   image: string;
   titleKey: string;
   descKey: string;
+  category: 'academic' | 'experience' | 'courses' | 'official';
 }
 
 export interface CourseItem {
@@ -39,6 +42,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (6)_7.jpeg',
     titleKey: 'doc_1_t',
     descKey: 'doc_1_d',
+    category: 'academic',
   },
   // 2. BIS
   {
@@ -46,6 +50,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (10)_7.jpeg',
     titleKey: 'doc_2_t',
     descKey: 'doc_2_d',
+    category: 'academic',
   },
   // 3. Tafaseel BPO (HDB Project) - Experience Certificate
   {
@@ -53,6 +58,7 @@ export const documents: DocumentItem[] = [
     image: '/assets/aistudio/Picsart_26-10-21_01-03-36-257_cc4be02f.png',
     titleKey: 'doc_tafaseel_t',
     descKey: 'doc_tafaseel_d',
+    category: 'experience',
   },
   // 4. Bayt Al-Khibra - Financial & Tax Accounting Experience Certificate
   {
@@ -60,6 +66,7 @@ export const documents: DocumentItem[] = [
     image: '/assets/aistudio/Picsart_26-10-20_21-23-27-538_23ce90de.jpg',
     titleKey: 'doc_bayt_khibra_t',
     descKey: 'doc_bayt_khibra_d',
+    category: 'experience',
   },
   // 5. Heaven Academy - PFA Certificate
   {
@@ -67,6 +74,7 @@ export const documents: DocumentItem[] = [
     image: '/assets/aistudio/Picsart_26-10-20_21-25-46-167_68333fd0.jpg',
     titleKey: 'doc_pfa_heaven_t',
     descKey: 'doc_pfa_heaven_d',
+    category: 'courses',
   },
   // 6. Heaven Academy - Oracle Financial & Odoo Certificate
   {
@@ -74,6 +82,7 @@ export const documents: DocumentItem[] = [
     image: '/assets/aistudio/Screenshot_2026-10-20-21-34-22-28_680d03679600f7af0b4c700c6b270fe7_285f8c91.jpg',
     titleKey: 'doc_oracle_odoo_heaven_t',
     descKey: 'doc_oracle_odoo_heaven_d',
+    category: 'courses',
   },
   // 7. FDTC
   {
@@ -81,6 +90,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (9)_7.jpeg',
     titleKey: 'doc_3_t',
     descKey: 'doc_3_d',
+    category: 'courses',
   },
   // 8. Banque Misr
   {
@@ -88,6 +98,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (2)_7.jpeg',
     titleKey: 'doc_4_t',
     descKey: 'doc_4_d',
+    category: 'courses',
   },
   // 9. Syndicate
   {
@@ -95,6 +106,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (7)_5.jpeg',
     titleKey: 'doc_5_t',
     descKey: 'doc_5_d',
+    category: 'official',
   },
   // 10. DBA Card
   {
@@ -102,6 +114,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (8)_6.jpeg',
     titleKey: 'doc_6_t',
     descKey: 'doc_6_d',
+    category: 'academic',
   },
   // 11. SQL Course
   {
@@ -109,6 +122,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (1).jpeg',
     titleKey: 'doc_7_t',
     descKey: 'doc_7_d',
+    category: 'courses',
   },
   // 12. Military Service
   {
@@ -116,6 +130,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM (3).jpeg',
     titleKey: 'doc_8_t',
     descKey: 'doc_8_d',
+    category: 'official',
   },
   // 13. C++ Course
   {
@@ -123,6 +138,7 @@ export const documents: DocumentItem[] = [
     image: '/WhatsApp Image 2026-08-27 at 3.58.47 PM.jpeg',
     titleKey: 'doc_9_t',
     descKey: 'doc_9_d',
+    category: 'courses',
   },
 ];
 
@@ -153,6 +169,20 @@ export const educationList: EducationItem[] = [
 // Experience list without Agricultural Company, keeping all legitimate experiences
 export const experienceList: ExperienceItem[] = [
   {
+    dateKey: 'exp_khibra_date',
+    titleKey: 'exp_khibra_title',
+    bulletKeys: [
+      'exp_khibra_li1',
+      'exp_khibra_li2',
+      'exp_khibra_li3',
+      'exp_khibra_li4',
+      'exp_khibra_li5',
+      'exp_khibra_li6',
+      'exp_khibra_li7',
+      'exp_khibra_li8',
+    ],
+  },
+  {
     dateKey: 'exp_2_date',
     titleKey: 'exp_2_title',
     bulletKeys: [
@@ -167,16 +197,6 @@ export const experienceList: ExperienceItem[] = [
     ],
   },
   {
-    dateKey: 'exp_khibra_date',
-    titleKey: 'exp_khibra_title',
-    bulletKeys: [
-      'exp_khibra_li1',
-      'exp_khibra_li2',
-      'exp_khibra_li3',
-      'exp_khibra_li4',
-    ],
-  },
-  {
     dateKey: 'exp_3_date',
     titleKey: 'exp_3_title',
     bulletKeys: [
@@ -188,7 +208,6 @@ export const experienceList: ExperienceItem[] = [
       'exp_3_li6',
       'exp_3_li7',
       'exp_3_li8',
-      'exp_3_li9',
     ],
   },
   {
@@ -322,9 +341,21 @@ export const translations: Record<Language, Record<string, string>> = {
     // Experience with exact duration next to (Concurrent)
     exp_title: "Work Experience",
 
-    // 1. Tafaseel BPO - HDB Project
-    exp_2_date: "Jul 30, 2025 - Aug 1, 2026 (1 Year - Concurrent)",
-    exp_2_title: "Customer Service Representative (Call Center) — Tafaseel BPO International (Housing & Development Bank HDB Project)",
+    // 1. Bayt Al-Khobara
+    exp_khibra_date: "Duration: 2 Years",
+    exp_khibra_title: "Accountant – Bayt Al-Khobara Financial & Tax Consultancy Office, Egypt",
+    exp_khibra_li1: "Recorded and classified financial transactions in accounting books in accordance with accounting principles.",
+    exp_khibra_li2: "Maintained organized accounting records and supporting financial documentation.",
+    exp_khibra_li3: "Prepared adjusting entries and assisted in performing account reconciliations.",
+    exp_khibra_li4: "Assisted in preparing year-end accounts and financial statements in accordance with Egyptian Accounting Standards.",
+    exp_khibra_li5: "Used Advanced Microsoft Excel to organize financial data and prepare accounting reports.",
+    exp_khibra_li6: "Worked with customized accounting software to record transactions and maintain financial records.",
+    exp_khibra_li7: "Reviewed financial transactions and supporting documents to identify discrepancies.",
+    exp_khibra_li8: "Assisted in organizing computerized accounting systems and improving accounting workflows.",
+
+    // 2. Tafaseel BPO - HDB Project
+    exp_2_date: "Duration: 1 Year",
+    exp_2_title: "Customer Service Representative – Housing & Development Bank (HDB) | BPO International",
     exp_2_li1: "Supervised the daily performance of the team, reviewed team members' work, and provided guidance to improve service quality and productivity.",
     exp_2_li2: "Monitored team performance, identified errors, and coached team members to ensure compliance with banking procedures and quality standards.",
     exp_2_li3: "Handled inbound customer calls and provided professional support for banking products and services.",
@@ -334,30 +365,21 @@ export const translations: Record<Language, Record<string, string>> = {
     exp_2_li7: "Documented customer interactions accurately using CRM and banking systems.",
     exp_2_li8: "Maintained confidentiality of customer information and ensured compliance with banking regulations.",
 
-    // 2. Bayt Al-Khibra
-    exp_khibra_date: "Oct 1, 2024 - Sep 30, 2026 (2 Years - Concurrent)",
-    exp_khibra_title: "Financial & Tax Accountant — Bayt Al-Khibra for Financial & Tax Consultations (Certified Public Accountant Mohamed Karam)",
-    exp_khibra_li1: "Provided technical accounting guidance and entered financial operations into accounting ledgers following standard accounting methodologies.",
-    exp_khibra_li2: "Designed computerized documentary and ledger accounting systems to enhance financial recording accuracy.",
-    exp_khibra_li3: "Prepared inventory adjustments, closing accounts, and various financial statements according to Egyptian Accounting Standards (EAS).",
-    exp_khibra_li4: "Demonstrated high efficiency and professionalism in executing assigned financial tasks, tax reviews, and audit preparations.",
-
     // 3. MCV Academy
-    exp_3_date: "Dec 2024 - Oct 2025 (11 Months - Concurrent)",
-    exp_3_title: "Academic Officer — MCV Academy, El Salheya El Gedida, Egypt",
-    exp_3_li1: "Entered attendance and grades accurately using Excel and digital management systems.",
-    exp_3_li2: "Managed student records and generated performance and attendance reports for senior management.",
-    exp_3_li3: "Developed an organized academic archiving system, reducing retrieval time by 30%.",
-    exp_3_li4: "Prepared exams, monitored student performance, and conducted satisfaction surveys.",
-    exp_3_li5: "Evaluated instructor performance and provided recommendations to management.",
-    exp_3_li6: "Coordinated schedules to prevent classroom and instructor conflicts.",
-    exp_3_li7: "Proposed and implemented digital solutions to reduce paperwork and improve workflow.",
-    exp_3_li8: "Prepared weekly academic and attendance reports for senior management.",
-    exp_3_li9: "Trained junior staff on Excel reporting and digital record management.",
+    exp_3_date: "Duration: 7 Months and 15 Days",
+    exp_3_title: "Academic Officer – MCV Academy, El Salheya El Gedida, Egypt",
+    exp_3_li1: "Entered and updated student attendance and academic grades using Microsoft Excel and digital management systems.",
+    exp_3_li2: "Maintained student records and organized academic documentation.",
+    exp_3_li3: "Prepared weekly attendance and academic performance reports for management.",
+    exp_3_li4: "Assisted in exam preparation and monitored student performance.",
+    exp_3_li5: "Coordinated class schedules and helped prevent classroom and instructor scheduling conflicts.",
+    exp_3_li6: "Organized digital filing systems to improve document accessibility and retrieval.",
+    exp_3_li7: "Conducted student satisfaction surveys and organized feedback for administrative review.",
+    exp_3_li8: "Supported daily academic administration and workflow coordination.",
 
     // 4. Military Service
-    exp_4_date: "2024 (1 Year)",
-    exp_4_title: "Military Service — Computer Soldier, Egypt",
+    exp_4_date: "Duration: 1 Year and 2 Months",
+    exp_4_title: "Military Service – Computer Soldier, Egypt",
     exp_4_li1: "Executed administrative tasks using Microsoft Office efficiently.",
     exp_4_li2: "Prepared and organized reports and documentation with high accuracy.",
     exp_4_li3: "Worked effectively under pressure in a structured, disciplined environment.",
@@ -366,7 +388,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // 5. Kriazi
     exp_5_date: "Part-time",
-    exp_5_title: "Part-time Supervisor — Kriazi Company, Egypt",
+    exp_5_title: "Part-time Supervisor – Kriazi Company, Egypt",
     exp_5_li1: "Supervised daily operations, ensuring tasks were completed efficiently.",
     exp_5_li2: "Coordinated workers' activities to achieve daily targets.",
     exp_5_li3: "Managed operational issues and reported performance to management.",
@@ -374,11 +396,11 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // 6. Local Shop
     exp_6_date: "Technical Experience",
-    exp_6_title: "Sales and Computer Technician — Local Computer Shop, Egypt",
-    exp_6_li1: "Sold computers and accessories while providing technical consultations.",
-    exp_6_li2: "Maintained and repaired hardware and software efficiently.",
-    exp_6_li3: "Enhanced customer service and technical communication skills.",
-    exp_6_li4: "Provided training to customers on software and device usage.",
+    exp_6_title: "Sales and Computer Technician – Local Computer Shop, Egypt",
+    exp_6_li1: "Assisted customers in selecting computers, accessories, and suitable technical solutions.",
+    exp_6_li2: "Sold computer hardware and accessories and explained product features.",
+    exp_6_li3: "Diagnosed and resolved basic hardware and software issues.",
+    exp_6_li4: "Installed software and assisted with computer setup and configuration.",
 
     // Skills
     sk_title: "Skills",
@@ -513,7 +535,37 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Footer & Lightbox
     footer_rights: "All Rights Reserved",
-    modal_close: "Close Preview"
+    modal_close: "Close Preview",
+
+    // Key Metrics
+    metric_exp_val: "+3 Years",
+    metric_exp_lbl: "Accounting & Banking Experience",
+    metric_edu_val: "MBA (Excellent)",
+    metric_edu_lbl: "Finance & Investment | DBA Candidate",
+    metric_certs_val: "+12 Certificates",
+    metric_certs_lbl: "Accredited Accounting, ERP & Banking",
+    metric_bank_val: "HDB Project",
+    metric_bank_lbl: "Housing & Development Bank CSR",
+
+    // Document Filters
+    filter_all: "All Documents",
+    filter_academic: "Academic Degrees",
+    filter_experience: "Experience Certificates",
+    filter_courses: "Courses & Training",
+    filter_official: "Official IDs & Service",
+
+    // CV Preview & Quick Actions
+    btn_preview_cv: "Preview CV",
+    btn_save_vcard: "Save Contact Card (.vcf)",
+    cv_modal_title: "Official Curriculum Vitae — Beshoy Naguib",
+    cv_modal_download: "Download PDF",
+    cv_modal_print: "Print CV",
+    copied_toast: "Copied to clipboard successfully!",
+    scroll_top: "Back to Top",
+    whatsapp_tooltip: "Chat directly on WhatsApp",
+    whatsapp_msg: "Hello Mr. Beshoy, I reviewed your professional portfolio and would like to connect regarding a job opportunity.",
+    copy_email_btn: "Copy Email",
+    copy_phone_btn: "Copy Phone"
   },
   ar: {
     brand_name: "بيشوي نجيب",
@@ -562,9 +614,21 @@ export const translations: Record<Language, Record<string, string>> = {
     // Experience with exact duration next to (متزامن)
     exp_title: "الخبرات العملية",
 
-    // 1. Tafaseel BPO - HDB Project
-    exp_2_date: "30 يوليو 2025 - 1 أغسطس 2026 (سنة كاملة - متزامن)",
-    exp_2_title: "ممثل خدمة عملاء - كول سنتر — شركة تفاصيل بي بي او الدولية (مشروع بنك التعمير والإسكان)",
+    // 1. Bayt Al-Khobara
+    exp_khibra_date: "المدة: سنتان",
+    exp_khibra_title: "محاسب — مكتب بيت الخبراء للاستشارات المالية والضريبية، مصر",
+    exp_khibra_li1: "تسجيل وتصنيف العمليات والمعاملات المالية بالدفاتر المحاسبية طبقا للأصول والمبادئ المحاسبية.",
+    exp_khibra_li2: "حفظ وتنظيم السجلات المحاسبية والوثائق والمستندات المالية المؤيدة.",
+    exp_khibra_li3: "إعداد قيود التسوية والمساعدة في إجراء التسويات الحسابية والبنكية الدورية.",
+    exp_khibra_li4: "المساعدة في إعداد الحسابات الختامية والقوائم المالية طبقا لمعايير المحاسبة المصرية.",
+    exp_khibra_li5: "استخدام برنامج Microsoft Excel المتقدم لتنظيم البيانات المالية وإعداد التقارير المحاسبية.",
+    exp_khibra_li6: "العمل على البرامج المحاسبية المتخصصة لتسجيل المعاملات وحفظ السجلات المالية.",
+    exp_khibra_li7: "مراجعة المعاملات والمستندات المالية لتحديد وتصحيح أي فروقات بدقة عالية.",
+    exp_khibra_li8: "المساعدة في تنظيم النظم المحاسبية الإلكترونية وتحسين دورات العمل المحاسبية.",
+
+    // 2. Tafaseel BPO - HDB Project
+    exp_2_date: "المدة: سنة واحدة",
+    exp_2_title: "ممثل خدمة عملاء — بنك التعمير والإسكان (HDB) | شركة تفاصيل BPO الدولية",
     exp_2_li1: "الإشراف على الأداء اليومي للفريق، ومراجعة أعمال الأعضاء، وتوجيههم لتحسين جودة الخدمة والإنتاجية.",
     exp_2_li2: "مراقبة أداء الفريق، وتحديد الأخطاء، وتوجيه الأعضاء لضمان الالتزام بالإجراءات المصرفية ومعايير الجودة.",
     exp_2_li3: "التعامل مع مكالمات العملاء الواردة وتقديم دعم احترافي للمنتجات والخدمات المصرفية.",
@@ -574,35 +638,26 @@ export const translations: Record<Language, Record<string, string>> = {
     exp_2_li7: "توثيق تفاعلات العملاء بدقة باستخدام أنظمة إدارة علاقات العملاء (CRM) والأنظمة المصرفية.",
     exp_2_li8: "الحفاظ على سرية معلومات العملاء وضمان الالتزام باللوائح المصرفية.",
 
-    // 2. Bayt Al-Khibra
-    exp_khibra_date: "1 أكتوبر 2024 - 30 سبتمبر 2026 (سنتان - متزامن)",
-    exp_khibra_title: "محاسب مالي وضريبي — مكتب بيت الخبراء للاستشارات المالية والضريبية (محاسب قانوني محمد كرم عبد المحسن)",
-    exp_khibra_li1: "التوجيه الفني المحاسبي وتسجيل العمليات بالدفاتر المحاسبية طبقا للطرق المحاسبية المختلفة.",
-    exp_khibra_li2: "تصميم النظم المحاسبية المستندية والدفترية باستخدام الكمبيوتر.",
-    exp_khibra_li3: "اعداد التسويات الجردية والحسابات الختامية والقوائم المالية المختلفة طبقا للمعايير المحاسبية المصرية.",
-    exp_khibra_li4: "إنجاز المهام بكفاءة وفاعلية عالية بالتعاون مع الزملاء والالتزام بحسن السير والسلوك والمهنية العالية.",
-
     // 3. MCV Academy
-    exp_3_date: "ديسمبر 2024 - أكتوبر 2025 (11 شهراً - متزامن)",
+    exp_3_date: "المدة: 7 أشهر و 15 يوماً",
     exp_3_title: "مسؤول أكاديمي — أكاديمية MCV، الصالحية الجديدة، مصر",
-    exp_3_li1: "إدخال الحضور والدرجات بدقة باستخدام برنامج Excel وأنظمة الإدارة الرقمية.",
-    exp_3_li2: "إدارة سجلات الطلاب وإعداد تقارير الأداء والحضور للإدارة العليا.",
-    exp_3_li3: "تطوير نظام أرشفة أكاديمي منظم، مما قلل وقت الاسترجاع بنسبة 30%.",
-    exp_3_li4: "إعداد الامتحانات، ومراقبة أداء الطلاب، وإجراء استطلاعات الرضا.",
-    exp_3_li5: "تقييم أداء المحاضرين وتقديم التوصيات للإدارة.",
-    exp_3_li6: "تنسيق الجداول الزمنية لمنع تعارض الفصول والمحاضرين.",
-    exp_3_li7: "اقتراح وتطبيق حلول رقمية لتقليل الأعمال الورقية وتحسين سير العمل.",
-    exp_3_li8: "إعداد التقارير الأسبوعية الأكاديمية وتقارير الحضور للإدارة العليا.",
-    exp_3_li9: "تدريب الموظفين الجدد على إعداد التقارير باستخدام Excel وإدارة السجلات الرقمية.",
+    exp_3_li1: "إدخال وتحديث حضور الطلاب والدرجات الأكاديمية بدقة باستخدام برنامج Excel وأنظمة الإدارة الرقمية.",
+    exp_3_li2: "إدارة سجلات الطلاب وتنظيم التوثيق والأرشيف الأكاديمي.",
+    exp_3_li3: "إعداد تقارير الحضور والأداء الأكاديمي الأسبوعية للإدارة العليا.",
+    exp_3_li4: "المساعدة في إعداد الامتحانات ومراقبة أداء الطلاب وتقييم استطلاعات الرضا.",
+    exp_3_li5: "تنسيق جداول الفصول والمحاضرين لمنع أي تعارض في المواعيد والقاعات.",
+    exp_3_li6: "تنظيم أنظمة الحفظ الرقمي لتحسين سرعة وسهولة الوصول إلى المستندات.",
+    exp_3_li7: "إجراء استطلاعات رضا الطلاب وتنظيم الملاحظات للمراجعة الإدارية.",
+    exp_3_li8: "دعم العمليات الإدارية الأكاديمية اليومية وتنسيق سير العمل بفاعلية.",
 
     // 4. Military Service
-    exp_4_date: "2024 (سنة كاملة)",
+    exp_4_date: "المدة: سنة وشهران",
     exp_4_title: "الخدمة العسكرية — جندي حاسب آلي، مصر",
-    exp_4_li1: "تنفيذ المهام الإدارية باستخدام Microsoft Office بكفاءة.",
-    exp_4_li2: "إعداد وتنظيم التقارير والوثائق بدقة عالية.",
-    exp_4_li3: "العمل بفاعلية تحت الضغط في بيئة منظمة وانضباطية.",
-    exp_4_li4: "تطوير مهارات العمل الجماعي، التواصل، والانضباط.",
-    exp_4_li5: "المساعدة في إعداد وصيانة أنظمة تكنولوجيا المعلومات للعمليات الإدارية.",
+    exp_4_li1: "تنفيذ المهام الإدارية باستخدام Microsoft Office بكفاءة عالية.",
+    exp_4_li2: "إعداد وتنظيم التقارير والوثائق بدقة وموثوقية.",
+    exp_4_li3: "العمل بفاعلية تحت الضغط في بيئة عمل منظمة وانضباطية.",
+    exp_4_li4: "تطوير مهارات العمل الجماعي، التواصل الاحترافي، والانضباط المؤسسي.",
+    exp_4_li5: "المساعدة في إعداد وصيانة أنظمة الحاسب للعمليات الإدارية.",
 
     // 5. Kriazi
     exp_5_date: "دوام جزئي",
@@ -615,10 +670,10 @@ export const translations: Record<Language, Record<string, string>> = {
     // 6. Local Shop
     exp_6_date: "خبرة تقنية وعملية",
     exp_6_title: "فني مبيعات وحاسب آلي — محل حاسبات محلي، مصر",
-    exp_6_li1: "بيع أجهزة الكمبيوتر والملحقات مع تقديم الاستشارات الفنية.",
-    exp_6_li2: "صيانة وإصلاح الأجهزة والبرمجيات بكفاءة.",
-    exp_6_li3: "تعزيز خدمة العملاء ومهارات التواصل التقني.",
-    exp_6_li4: "تقديم التدريب للعملاء على استخدام البرامج والأجهزة.",
+    exp_6_li1: "مساعدة العملاء في اختيار أجهزة الكمبيوتر والملحقات والحلول التقنية المناسبة.",
+    exp_6_li2: "بيع قطع هاردوير وملحقات الكمبيوتر وشرح الميزات للعملاء.",
+    exp_6_li3: "تشخيص وإصلاح المشكلات الأساسية في الهاردوير والسوفتوير.",
+    exp_6_li4: "تثبيت البرامج وإعداد وتهيئة أجهزة الكمبيوتر للمستخدمين.",
 
     // Skills
     sk_title: "المهارات",
@@ -753,6 +808,36 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Footer & Lightbox
     footer_rights: "جميع الحقوق محفوظة",
-    modal_close: "إغلاق المعاينة"
+    modal_close: "إغلاق المعاينة",
+
+    // Key Metrics
+    metric_exp_val: "+3 سنوات",
+    metric_exp_lbl: "خبرة في المحاسبة والخدمات المصرفية",
+    metric_edu_val: "MBA بتقدير ممتاز",
+    metric_edu_lbl: "ماجستير تمويل واستثمار وباحث دكتوراه",
+    metric_certs_val: "+12 شهادة معتمدة",
+    metric_certs_lbl: "دورات مهنية في المحاسبة وERP والعمل المصرفي",
+    metric_bank_val: "مشروع بنك التعمير والإسكان",
+    metric_bank_lbl: "ممثل خدمة عملاء كول سنتر",
+
+    // Document Filters
+    filter_all: "الكل",
+    filter_academic: "المؤهلات الأكاديمية",
+    filter_experience: "شهادات الخبرة",
+    filter_courses: "الشهادات المهنية والدورات",
+    filter_official: "الهويات الرسمية والخدمة",
+
+    // CV Preview & Quick Actions
+    btn_preview_cv: "معاينة السيرة الذاتية",
+    btn_save_vcard: "حفظ جهة الاتصال في هاتفك (.vcf)",
+    cv_modal_title: "السيرة الذاتية الرسمية — بيشوي نجيب جورج",
+    cv_modal_download: "تحميل ملف PDF",
+    cv_modal_print: "طباعة السيرة الذاتية",
+    copied_toast: "تم نسخ النص إلى الحافظة بنجاح!",
+    scroll_top: "العودة للأعلى",
+    whatsapp_tooltip: "تواصل مباشرة عبر واتساب",
+    whatsapp_msg: "مرحباً أستاذ بيشوي، اطلعت على ملفك المهني وأود التواصل معك بشأن فرصة عمل.",
+    copy_email_btn: "نسخ البريد",
+    copy_phone_btn: "نسخ الهاتف"
   }
 };

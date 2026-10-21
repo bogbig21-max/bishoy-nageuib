@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Language, translations } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { KeyMetrics } from './components/KeyMetrics';
 import { OpenToWork } from './components/OpenToWork';
 import { CareerObjective } from './components/CareerObjective';
 import { Education } from './components/Education';
@@ -13,6 +14,9 @@ import { Languages } from './components/Languages';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ImageModal } from './components/ImageModal';
+import { CvModal } from './components/CvModal';
+import { FloatingActions } from './components/FloatingActions';
+import { Toast } from './components/Toast';
 
 export const App: React.FC = () => {
   const [currentLang, setCurrentLang] = useState<Language>('en');
@@ -20,6 +24,8 @@ export const App: React.FC = () => {
     return localStorage.getItem('theme') === 'dark';
   });
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isCvModalOpen, setIsCvModalOpen] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Synchronize language, text direction, and page title/meta
   useEffect(() => {
@@ -54,8 +60,19 @@ export const App: React.FC = () => {
     setIsDark((prev) => !prev);
   };
 
+  const showToast = (message: string) => {
+    setToastMessage(message);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 2800);
+  };
+
   return (
     <div className="portfolio-app">
+      {/* Scroll Progress Bar & Floating Quick Actions */}
+      <FloatingActions currentLang={currentLang} />
+
+      {/* Main Navigation */}
       <Navbar
         currentLang={currentLang}
         onToggleLang={toggleLanguage}
@@ -64,7 +81,11 @@ export const App: React.FC = () => {
       />
 
       <main>
-        <Hero currentLang={currentLang} />
+        <Hero
+          currentLang={currentLang}
+          onOpenCvModal={() => setIsCvModalOpen(true)}
+        />
+        <KeyMetrics currentLang={currentLang} />
         <OpenToWork currentLang={currentLang} />
         <CareerObjective currentLang={currentLang} />
         <Education currentLang={currentLang} />
@@ -76,16 +97,27 @@ export const App: React.FC = () => {
           onOpenModal={(img) => setSelectedImage(img)}
         />
         <Languages currentLang={currentLang} />
-        <Contact currentLang={currentLang} />
+        <Contact currentLang={currentLang} onShowToast={showToast} />
       </main>
 
       <Footer currentLang={currentLang} />
 
+      {/* Image Lightbox Modal */}
       <ImageModal
         imageSrc={selectedImage}
         onClose={() => setSelectedImage(null)}
         currentLang={currentLang}
       />
+
+      {/* Interactive CV Viewer Modal */}
+      <CvModal
+        isOpen={isCvModalOpen}
+        onClose={() => setIsCvModalOpen(false)}
+        currentLang={currentLang}
+      />
+
+      {/* Toast Notification */}
+      <Toast message={toastMessage} />
     </div>
   );
 };
