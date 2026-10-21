@@ -105,13 +105,7 @@ export const DocumentsGallery: React.FC<DocumentsGalleryProps> = ({
               </div>
               <button
                 type="button"
-                className="btn btn-outline"
-                style={{
-                  color: 'var(--primary)',
-                  borderColor: 'var(--border-color)',
-                  width: '100%',
-                  justifyContent: 'center',
-                }}
+                className="btn btn-outline doc-view-btn"
                 onClick={() => onOpenModal(doc.image)}
               >
                 <i className="fa-solid fa-eye"></i>

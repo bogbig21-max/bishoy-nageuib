@@ -45,7 +45,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({ imageSrc, onClose, curre
         aria-label={t.modal_close}
         title={t.modal_close}
       >
-        &times;
+        <i className="fa-solid fa-xmark"></i>
       </button>
       <img
         src={imageSrc}
