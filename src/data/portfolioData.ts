@@ -50,7 +50,7 @@ export const documents: DocumentItem[] = [
   // 3. Tafaseel BPO (HDB Project) - Experience Certificate
   {
     id: 'tafaseel-bpo',
-    image: '/assets/aistudio/Picsart_26-10-20_19-38-55-509_f804f2f3.jpg',
+    image: '/assets/aistudio/Picsart_26-10-21_01-03-36-257_cc4be02f.png',
     titleKey: 'doc_tafaseel_t',
     descKey: 'doc_tafaseel_d',
   },
@@ -456,7 +456,7 @@ export const translations: Record<Language, Record<string, string>> = {
     doc_2_d: "Higher Institute - Excellent Grade",
 
     doc_tafaseel_t: "Customer Service Experience Certificate — Tafaseel BPO",
-    doc_tafaseel_d: "Call Center Representative | HDB Project (Jul 30, 2025 - Aug 1, 2026 - Concurrent)",
+    doc_tafaseel_d: "Customer Service Call Center Representative — Affiliated with Housing & Development Bank (HDB) Project (Jul 30, 2025 - Aug 1, 2026 - Concurrent)",
 
     doc_bayt_khibra_t: "Accounting & Tax Experience Certificate — Bayt Al-Khibra",
     doc_bayt_khibra_d: "Certified Public Accountant Mohamed Karam (Oct 1, 2024 - Sep 30, 2026 - Concurrent)",
@@ -696,7 +696,7 @@ export const translations: Record<Language, Record<string, string>> = {
     doc_2_d: "المعهد العالي - بتقدير ممتاز",
 
     doc_tafaseel_t: "شهادة خبرة خدمة عملاء — شركة تفاصيل بي بي او الدولية",
-    doc_tafaseel_d: "ممثل خدمة عملاء كول سنتر | مشروع بنك التعمير والإسكان (30 يوليو 2025 - 1 أغسطس 2026 - متزامن)",
+    doc_tafaseel_d: "ممثل خدمة عملاء كول سنتر — تابعة لمشروع بنك التعمير والإسكان (30 يوليو 2025 - 1 أغسطس 2026 - متزامن)",
 
     doc_bayt_khibra_t: "شهادة خبرة محاسبية وضريبية — مكتب بيت الخبراء",
     doc_bayt_khibra_d: "محاسب قانوني محمد كرم عبد المحسن (1 أكتوبر 2024 - 30 سبتمبر 2026 - متزامن)",
