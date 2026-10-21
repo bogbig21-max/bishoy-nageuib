@@ -1722,72 +1722,167 @@ footer {
   to { opacity: 1; }
 }
 
-/* Responsive Fixed Navbar System - iPad, Tablets, Android & Mobile */
+/* Universal All-Device Responsive Navbar System - iPad, Tablets, Android & Mobile */
+/* ALL 7 buttons remain visible across ALL devices with zero overlap or collision */
+
+.nav-controls > * {
+  flex-shrink: 0;
+}
+
 @media (max-width: 1024px) {
-  /* On tablets/iPad and smaller, hide the tracker badge to prevent any header crowding */
+  .navbar-container {
+    padding: 0.45rem 1rem;
+    gap: 0.45rem;
+  }
   .nav-tracker-badge {
-    display: none !important;
+    max-width: 110px;
+    font-size: 0.72rem;
+    padding: 3px 7px;
+  }
+  .nav-otw-btn {
+    padding: 4px 8px;
+    font-size: 0.74rem;
+  }
+  .nav-quick-contact-btn {
+    padding: 4px 9px;
+    font-size: 0.74rem;
   }
   .nav-controls {
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 }
 
 @media (max-width: 768px) {
-  /* On mobile and Android screens, hide redundant CTAs from header (both are inside the Hero and Drawer) */
-  .nav-otw-btn {
-    display: none !important;
-  }
-  .nav-quick-contact-btn {
-    display: none !important;
-  }
   .navbar-container {
-    padding: 0.45rem 0.85rem;
-    gap: 0.5rem;
+    padding: 0.4rem 0.55rem;
+    gap: 0.3rem;
+  }
+  .nav-brand-group {
+    gap: 5px;
+    min-width: 0;
+    flex-shrink: 1;
   }
   .brand {
-    font-size: 1.06rem;
+    font-size: 0.95rem;
+    gap: 4px;
+    max-width: 105px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* Active Tracker Badge: Compact Icon + Dot, fully visible */
+  .nav-tracker-badge {
+    display: inline-flex !important;
+    padding: 3px 6px;
+    height: 30px;
+    gap: 4px;
+    font-size: 0.72rem;
+  }
+  .nav-tracker-badge .tracker-text {
+    display: none;
   }
   .nav-controls {
-    gap: 0.45rem;
+    gap: 0.25rem;
+    flex-shrink: 0;
   }
-  .control-btn {
-    min-width: 36px;
-    height: 36px;
-    padding: 0 8px;
-    font-size: 0.82rem;
+  /* Open to Work: Icon + Dot, fully visible */
+  .nav-otw-btn {
+    display: inline-flex !important;
+    height: 30px;
+    padding: 0 7px;
+    font-size: 0.72rem;
     gap: 4px;
-    touch-action: manipulation;
   }
+  .nav-otw-btn .nav-otw-text {
+    display: none;
+  }
+  /* Quick Contact: Icon, fully visible */
+  .nav-quick-contact-btn {
+    display: inline-flex !important;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    justify-content: center;
+    font-size: 0.72rem;
+  }
+  .nav-quick-contact-btn .nav-contact-text {
+    display: none;
+  }
+  /* Language Toggle: Compact & fully visible */
+  .control-btn.nav-lang-btn {
+    height: 30px;
+    padding: 0 6px;
+    font-size: 0.72rem;
+    gap: 3px;
+  }
+  /* Theme Toggle: Compact & fully visible */
+  .control-btn.nav-theme-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    justify-content: center;
+    font-size: 0.74rem;
+  }
+  /* Hamburger Menu: Compact & fully visible */
   .hamburger-btn {
-    min-width: 40px;
-    height: 36px;
-    padding: 5px 8px;
-    touch-action: manipulation;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    min-width: 30px;
+    justify-content: center;
   }
 }
 
 @media (max-width: 420px) {
   .navbar-container {
-    padding: 0.4rem 0.65rem;
+    padding: 0.35rem 0.35rem;
+    gap: 0.2rem;
   }
-  .brand {
-    font-size: 0.98rem;
+  .nav-brand-group {
     gap: 4px;
   }
-  .nav-controls {
-    gap: 0.35rem;
+  .brand {
+    font-size: 0.88rem;
+    max-width: 80px;
   }
-  .control-btn {
-    min-width: 34px;
-    height: 34px;
-    padding: 0 6px;
-    font-size: 0.78rem;
+  .nav-tracker-badge {
+    padding: 2px 4px;
+    height: 28px;
+  }
+  .nav-controls {
+    gap: 0.18rem;
+  }
+  .nav-otw-btn {
+    height: 28px;
+    padding: 0 5px;
+    font-size: 0.68rem;
+    gap: 3px;
+  }
+  .nav-quick-contact-btn {
+    height: 28px;
+    width: 28px;
+    font-size: 0.68rem;
+  }
+  .control-btn.nav-lang-btn {
+    height: 28px;
+    padding: 0 4px;
+    font-size: 0.68rem;
+    gap: 2px;
+  }
+  .control-btn.nav-theme-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
   }
   .hamburger-btn {
-    min-width: 36px;
-    height: 34px;
-    padding: 4px 6px;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    padding: 3px;
+  }
+  .hamburger-icon-lines {
+    width: 16px;
+    height: 12px;
   }
 }
 @media (max-width: 576px) {
