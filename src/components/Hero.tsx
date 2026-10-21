@@ -84,6 +84,10 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenCvModal }) => {
               <i className="fa-solid fa-star"></i>
               <span>{t.pill_skills}</span>
             </a>
+            <a href="#courses" className="quick-link-pill">
+              <i className="fa-solid fa-certificate"></i>
+              <span>{t.nav_courses}</span>
+            </a>
             <a href="#documents" className="quick-link-pill">
               <i className="fa-solid fa-folder-open"></i>
               <span>{t.pill_docs}</span>

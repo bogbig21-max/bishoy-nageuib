@@ -10,9 +10,15 @@ export interface DocumentItem {
   category: 'academic' | 'experience' | 'courses' | 'official';
 }
 
+export type CourseCategory = 'all' | 'accounting_erp' | 'banking' | 'tech_digital' | 'languages';
+
 export interface CourseItem {
+  id: string;
   titleKey: string;
   descKey: string;
+  category: 'accounting_erp' | 'banking' | 'tech_digital' | 'languages';
+  categoryKey: string;
+  icon: string;
 }
 
 export interface EducationItem {
@@ -279,18 +285,109 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const courseList: CourseItem[] = [
-  { titleKey: 'crs_1_t', descKey: 'crs_1_d' },
-  { titleKey: 'crs_2_t', descKey: 'crs_2_d' },
-  { titleKey: 'crs_3_t', descKey: 'crs_3_d' },
-  { titleKey: 'crs_4_t', descKey: 'crs_4_d' },
-  { titleKey: 'crs_5_t', descKey: 'crs_5_d' },
-  { titleKey: 'crs_6_t', descKey: 'crs_6_d' },
-  { titleKey: 'crs_7_t', descKey: 'crs_7_d' },
-  { titleKey: 'crs_8_t', descKey: 'crs_8_d' },
-  { titleKey: 'crs_9_t', descKey: 'crs_9_d' },
-  { titleKey: 'crs_10_t', descKey: 'crs_10_d' },
-  { titleKey: 'crs_11_t', descKey: 'crs_11_d' },
-  { titleKey: 'crs_12_t', descKey: 'crs_12_d' },
+  // 1. Accounting & Financial ERP Systems
+  {
+    id: 'pfa',
+    titleKey: 'crs_4_t',
+    descKey: 'crs_4_d',
+    category: 'accounting_erp',
+    categoryKey: 'crs_tag_accounting_erp',
+    icon: 'fa-solid fa-file-invoice-dollar',
+  },
+  {
+    id: 'oracle_odoo',
+    titleKey: 'crs_6_t',
+    descKey: 'crs_6_d',
+    category: 'accounting_erp',
+    categoryKey: 'crs_tag_accounting_erp',
+    icon: 'fa-solid fa-cubes',
+  },
+  {
+    id: 'bayt_khibra_exp',
+    titleKey: 'crs_9_t',
+    descKey: 'crs_9_d',
+    category: 'accounting_erp',
+    categoryKey: 'crs_tag_accounting_erp',
+    icon: 'fa-solid fa-stamp',
+  },
+  {
+    id: 'sap_erp',
+    titleKey: 'crs_5_t',
+    descKey: 'crs_5_d',
+    category: 'accounting_erp',
+    categoryKey: 'crs_tag_accounting_erp',
+    icon: 'fa-solid fa-diagram-project',
+  },
+
+  // 2. Banking Operations & Customer Service
+  {
+    id: 'banking_ops',
+    titleKey: 'crs_3_t',
+    descKey: 'crs_3_d',
+    category: 'banking',
+    categoryKey: 'crs_tag_banking',
+    icon: 'fa-solid fa-building-columns',
+  },
+  {
+    id: 'tafaseel_hdb',
+    titleKey: 'crs_7_t',
+    descKey: 'crs_7_d',
+    category: 'banking',
+    categoryKey: 'crs_tag_banking',
+    icon: 'fa-solid fa-headset',
+  },
+
+  // 3. Digital Transformation & Advanced Technology
+  {
+    id: 'fdtc',
+    titleKey: 'crs_2_t',
+    descKey: 'crs_2_d',
+    category: 'tech_digital',
+    categoryKey: 'crs_tag_tech',
+    icon: 'fa-solid fa-microchip',
+  },
+  {
+    id: 'excel_adv',
+    titleKey: 'crs_8_t',
+    descKey: 'crs_8_d',
+    category: 'tech_digital',
+    categoryKey: 'crs_tag_tech',
+    icon: 'fa-solid fa-file-excel',
+  },
+  {
+    id: 'icdl',
+    titleKey: 'crs_12_t',
+    descKey: 'crs_12_d',
+    category: 'tech_digital',
+    categoryKey: 'crs_tag_tech',
+    icon: 'fa-solid fa-laptop',
+  },
+  {
+    id: 'google_workspace',
+    titleKey: 'crs_11_t',
+    descKey: 'crs_11_d',
+    category: 'tech_digital',
+    categoryKey: 'crs_tag_tech',
+    icon: 'fa-brands fa-google-drive',
+  },
+  {
+    id: 'outlook',
+    titleKey: 'crs_10_t',
+    descKey: 'crs_10_d',
+    category: 'tech_digital',
+    categoryKey: 'crs_tag_tech',
+    icon: 'fa-solid fa-envelope-open-text',
+  },
+
+  // 4. Languages & International Communication
+  {
+    id: 'toefl_english',
+    titleKey: 'crs_1_t',
+    descKey: 'crs_1_d',
+    category: 'languages',
+    categoryKey: 'crs_tag_languages',
+    icon: 'fa-solid fa-language',
+  },
 ];
 
 export const translations: Record<Language, Record<string, string>> = {
@@ -306,6 +403,9 @@ export const translations: Record<Language, Record<string, string>> = {
     nav_courses: "Courses & Certificates",
     nav_docs: "Documents",
     nav_contact: "Contact",
+    nav_otw_badge: "Open to Work",
+    nav_quick_contact: "Contact Me",
+    nav_now_viewing: "Viewing",
     hero_name: "Bishoy Nageuib",
     hero_title: "Financial Accountant | Banking & Customer Service Specialist | Administrator",
     hero_desc: "Professional portfolio and CV focusing on Financial Accounting, Banking Services, Customer Service, and Administration.",
@@ -445,6 +545,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Courses & Certs
     crs_title: "Certificates & Courses",
+    crs_filter_all: "All Credentials",
+    crs_filter_accounting_erp: "Accounting & ERP Systems",
+    crs_filter_banking: "Banking & Financial Services",
+    crs_filter_tech: "Digital & Tech Skills",
+    crs_filter_languages: "Languages",
+    crs_tag_accounting_erp: "Financial & ERP",
+    crs_tag_banking: "Banking & CSR",
+    crs_tag_tech: "Digital & IT",
+    crs_tag_languages: "Language",
     crs_1_t: "English Language Course - TOEFL Preparation",
     crs_1_d: "Armed Forces Institute of Languages (AFIL), Kobry El-Qobba, Egypt | 2026 - Present (Concurrent)",
     crs_2_t: "Fundamentals of Digital Transformation Certificate (FDTC)",
@@ -579,6 +688,9 @@ export const translations: Record<Language, Record<string, string>> = {
     nav_courses: "الدورات والشهادات",
     nav_docs: "المستندات",
     nav_contact: "التواصل",
+    nav_otw_badge: "متاح للعمل",
+    nav_quick_contact: "تواصل معي",
+    nav_now_viewing: "أنت تشاهد",
     hero_name: "بيشوي نجيب",
     hero_title: "محاسب مالي | أخصائي خدمات مصرفية وخدمة عملاء | إداري",
     hero_desc: "الملف المهني والسيرة الذاتية الخاصة بي في مجالات المحاسبة المالية، الخدمات المصرفية، خدمة العملاء، والعمليات الإدارية.",
@@ -718,6 +830,15 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Courses & Certs
     crs_title: "الشهادات والدورات",
+    crs_filter_all: "جميع الشهادات والدورات",
+    crs_filter_accounting_erp: "المحاسبة وأنظمة الـ ERP",
+    crs_filter_banking: "العمليات المصرفية وخدمة العملاء",
+    crs_filter_tech: "التحول الرقمي وتكنولوجيا المعلومات",
+    crs_filter_languages: "اللغات والتواصل",
+    crs_tag_accounting_erp: "أنظمة مالية و ERP",
+    crs_tag_banking: "مصرفي وخدمة عملاء",
+    crs_tag_tech: "تحول رقمي وحاسب",
+    crs_tag_languages: "إتقان اللغات",
     crs_1_t: "دورة اللغة الإنجليزية (التحضير لاختبار TOEFL)",
     crs_1_d: "معهد اللغات للقوات المسلحة (AFIL)، كوبري القبة، مصر | 2026 - حتى الآن (متزامن)",
     crs_2_t: "شهادة أساسيات التحول الرقمي (FDTC)",

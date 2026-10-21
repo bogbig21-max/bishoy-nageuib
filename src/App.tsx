@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Language, translations } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { KeyMetrics } from './components/KeyMetrics';
 import { OpenToWork } from './components/OpenToWork';
 import { CareerObjective } from './components/CareerObjective';
 import { Education } from './components/Education';
@@ -85,7 +84,6 @@ export const App: React.FC = () => {
           currentLang={currentLang}
           onOpenCvModal={() => setIsCvModalOpen(true)}
         />
-        <KeyMetrics currentLang={currentLang} />
         <OpenToWork currentLang={currentLang} />
         <CareerObjective currentLang={currentLang} />
         <Education currentLang={currentLang} />
