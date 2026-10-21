@@ -86,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Close when clicking outside drawer and hamburger toggle button
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+    const handleMouseDown = (event: MouseEvent) => {
       if (!isMenuOpen) return;
       const target = event.target as Node;
       if (
@@ -99,11 +99,9 @@ export const Navbar: React.FC<NavbarProps> = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener('mousedown', handleMouseDown);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('mousedown', handleMouseDown);
     };
   }, [isMenuOpen]);
 
@@ -114,14 +112,14 @@ export const Navbar: React.FC<NavbarProps> = ({
     <>
       <nav className="navbar" aria-label="Main Navigation">
         <div className="navbar-container">
-          {/* Brand & Item 4: Active Section Tracker */}
+          {/* Brand & Desktop Active Section Tracker */}
           <div className="nav-brand-group">
             <a href="#home" className="brand">
               <i className="fa-solid fa-briefcase"></i>
-              <span>{t.brand_name}</span> <span>.</span>
+              <span>{t.brand_name}</span> <span className="brand-dot">.</span>
             </a>
 
-            {/* Item 4: Dynamic Active Section Indicator */}
+            {/* Dynamic Active Section Indicator (Desktop Only) */}
             <div
               className="nav-tracker-badge"
               title={`${t.nav_now_viewing}: ${currentSectionItem.label}`}
@@ -133,9 +131,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          {/* Action Zone: Item 2 (OTW) + Item 3 (Contact CTA) + Controls (Theme, Lang, Menu) */}
+          {/* Action & Controls Zone */}
           <div className="nav-controls">
-            {/* Item 2: Open to Work 3D Badge */}
+            {/* Open to Work 3D Badge (Large screens / Tablets) */}
             <a
               href="#open-to-work"
               className="nav-otw-btn"
@@ -146,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="nav-otw-text">{t.nav_otw_badge}</span>
             </a>
 
-            {/* Item 3: Quick Contact 3D CTA Button */}
+            {/* Quick Contact 3D CTA Button (Large screens) */}
             <a
               href="#contact"
               className="nav-quick-contact-btn"
@@ -156,9 +154,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="nav-contact-text">{t.nav_quick_contact}</span>
             </a>
 
-            {/* Theme Toggle Button */}
+            {/* Language Toggle Button (Always visible, responsive) */}
             <button
-              className="control-btn"
+              className="control-btn nav-lang-btn"
+              onClick={onToggleLang}
+              title={currentLang === 'en' ? 'التبديل إلى العربية' : 'Switch to English'}
+              type="button"
+              aria-label="Toggle Language"
+            >
+              <i className="fa-solid fa-globe"></i>
+              <span className="lang-text">{currentLang === 'en' ? 'عربي' : 'EN'}</span>
+            </button>
+
+            {/* Theme Toggle Button (Always visible) */}
+            <button
+              className="control-btn nav-theme-btn"
               onClick={onToggleTheme}
               title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               type="button"
@@ -167,19 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <i className={`fa-solid ${isDark ? 'fa-sun' : 'fa-moon'}`}></i>
             </button>
 
-            {/* Language Toggle Button */}
-            <button
-              className="control-btn"
-              onClick={onToggleLang}
-              title={currentLang === 'en' ? 'التبديل إلى العربية' : 'Switch to English'}
-              type="button"
-              aria-label="Toggle Language"
-            >
-              <i className="fa-solid fa-globe"></i>{' '}
-              <span>{currentLang === 'en' ? 'عربي' : 'English'}</span>
-            </button>
-
-            {/* Responsive Three-line Hamburger menu icon (☰) */}
+            {/* Responsive Hamburger menu button (☰) */}
             <button
               ref={toggleBtnRef}
               className={`hamburger-btn ${isMenuOpen ? 'active' : ''}`}
@@ -229,6 +227,19 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         <nav className="drawer-nav">
+          {/* Quick Open to Work Indicator in Drawer */}
+          <a
+            href="#open-to-work"
+            className="drawer-otw-banner"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <div className="drawer-otw-left">
+              <span className="nav-otw-dot"></span>
+              <span className="drawer-otw-title">{t.nav_open_work}</span>
+            </div>
+            <span className="drawer-otw-badge">{t.otw_tag}</span>
+          </a>
+
           <ul className="drawer-links">
             {navLinks.map((link) => (
               <li key={link.href}>
