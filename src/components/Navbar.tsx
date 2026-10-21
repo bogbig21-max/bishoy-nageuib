@@ -112,11 +112,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     <>
       <nav className="navbar" aria-label="Main Navigation">
         <div className="navbar-container">
-          {/* Brand & Desktop Active Section Tracker */}
+          {/* Brand & Dynamic Section Tracker */}
           <div className="nav-brand-group">
-            <a href="#home" className="brand">
-              <i className="fa-solid fa-briefcase"></i>
-              <span>{t.brand_name}</span> <span className="brand-dot">.</span>
+            <a href="#home" className="brand" aria-label={t.brand_name}>
+              <i className="fa-solid fa-briefcase brand-icon" aria-hidden="true"></i>
+              <span className="brand-name">{t.brand_name}</span>
+              <span className="brand-dot" aria-hidden="true">.</span>
             </a>
 
             {/* Dynamic Active Section Indicator (Desktop Only) */}

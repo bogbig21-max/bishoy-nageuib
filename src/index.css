@@ -85,21 +85,41 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0;
-  flex-shrink: 1;
+  flex-shrink: 0;
+  min-width: max-content;
 }
 .brand {
-  font-size: 1.18rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--primary);
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   white-space: nowrap;
   flex-shrink: 0;
+  min-width: max-content;
+  line-height: 1;
 }
-.brand span { color: var(--accent); }
+.brand .brand-icon {
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.brand .brand-name {
+  color: var(--primary);
+  font-weight: 800;
+  white-space: nowrap;
+  display: inline-block;
+  letter-spacing: -0.01em;
+}
+[data-theme="dark"] .brand .brand-name {
+  color: #f8fafc;
+}
+.brand .brand-dot {
+  color: var(--accent);
+  font-weight: 900;
+}
 
 /* Item 4: Dynamic Active Section Indicator - Sleek, Compact & Proportional */
 .nav-tracker-badge {
@@ -1732,7 +1752,16 @@ footer {
 @media (max-width: 1024px) {
   .navbar-container {
     padding: 0.45rem 1rem;
-    gap: 0.45rem;
+    gap: 0.5rem;
+  }
+  .nav-brand-group {
+    gap: 8px;
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+  .brand {
+    font-size: 1.12rem;
+    gap: 6px;
   }
   .nav-tracker-badge {
     max-width: 110px;
@@ -1754,23 +1783,29 @@ footer {
 
 @media (max-width: 768px) {
   .navbar-container {
-    padding: 0.4rem 0.55rem;
-    gap: 0.3rem;
+    padding: 0.4rem 0.65rem;
+    gap: 0.45rem;
   }
   .nav-brand-group {
-    gap: 5px;
-    min-width: 0;
-    flex-shrink: 1;
+    gap: 6px;
+    flex-shrink: 0;
+    min-width: max-content;
   }
   .brand {
-    font-size: 0.95rem;
-    gap: 4px;
-    max-width: 105px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1.05rem;
+    gap: 5px;
+    flex-shrink: 0;
+    min-width: max-content;
     white-space: nowrap;
   }
-  /* Active Tracker Badge: Compact Icon + Dot, fully visible */
+  .brand .brand-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+  .brand .brand-icon {
+    font-size: 0.95rem;
+  }
+  /* Active Tracker Badge: Compact Icon + Dot on tablet */
   .nav-tracker-badge {
     display: inline-flex !important;
     padding: 3px 6px;
@@ -1782,7 +1817,7 @@ footer {
     display: none;
   }
   .nav-controls {
-    gap: 0.25rem;
+    gap: 0.28rem;
     flex-shrink: 0;
   }
   /* Open to Work: Icon + Dot, fully visible */
@@ -1833,58 +1868,94 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  /* On mobile under 600px, hide the dynamic section tracking chip so the user's name has dedicated prime space */
+  .nav-tracker-badge {
+    display: none !important;
+  }
+  .navbar-container {
+    padding: 0.4rem 0.5rem;
+    gap: 0.35rem;
+  }
+  .nav-brand-group {
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+  .brand {
+    font-size: 1rem;
+    gap: 5px;
+    flex-shrink: 0;
+    min-width: max-content;
+    white-space: nowrap;
+  }
+  .brand .brand-name {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+}
+
 @media (max-width: 420px) {
   .navbar-container {
-    padding: 0.35rem 0.35rem;
-    gap: 0.2rem;
+    padding: 0.35rem 0.4rem;
+    gap: 0.3rem;
   }
   .nav-brand-group {
     gap: 4px;
+    flex-shrink: 0;
+    min-width: max-content;
   }
   .brand {
-    font-size: 0.88rem;
-    max-width: 80px;
+    font-size: 0.95rem;
+    gap: 4px;
+    flex-shrink: 0;
+    min-width: max-content;
+    white-space: nowrap;
   }
-  .nav-tracker-badge {
-    padding: 2px 4px;
-    height: 28px;
+  .brand .brand-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+  .brand .brand-icon {
+    font-size: 0.88rem;
   }
   .nav-controls {
-    gap: 0.18rem;
+    gap: 0.2rem;
+    flex-shrink: 0;
   }
   .nav-otw-btn {
-    height: 28px;
+    height: 29px;
     padding: 0 5px;
     font-size: 0.68rem;
     gap: 3px;
   }
   .nav-quick-contact-btn {
-    height: 28px;
-    width: 28px;
+    height: 29px;
+    width: 29px;
     font-size: 0.68rem;
   }
   .control-btn.nav-lang-btn {
-    height: 28px;
+    height: 29px;
     padding: 0 4px;
     font-size: 0.68rem;
     gap: 2px;
   }
   .control-btn.nav-theme-btn {
-    width: 28px;
-    height: 28px;
+    width: 29px;
+    height: 29px;
     font-size: 0.7rem;
   }
   .hamburger-btn {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
     padding: 3px;
   }
   .hamburger-icon-lines {
-    width: 16px;
+    width: 15px;
     height: 12px;
   }
 }
+
 @media (max-width: 576px) {
   .cv-modal-content {
     height: 96vh;
